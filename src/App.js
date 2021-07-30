@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
 // Add the Route named import
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
+
+//styles
+
+import { GlobalStyle } from './GlobalStyles';
 
 class App extends Component {
 	state = {
@@ -23,9 +26,10 @@ class App extends Component {
 
 	render() {
 		return (
-			<main className="App">
+			<div className="App">
+				<GlobalStyle />
 				<AuthPage setUserInState={this.setUserInState} />
-			</main>
+			</div>
 		);
 	}
 }
