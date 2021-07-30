@@ -24,6 +24,7 @@ class App extends Component {
 	render() {
 		return (
 			<main className="App">
+			<p>hey there</p>
 				<AuthPage setUserInState={this.setUserInState} />
 			</main>
 		);
