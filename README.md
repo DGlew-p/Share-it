@@ -1,5 +1,9 @@
 # Share-It (Name In Progress)
 
+### Description
+
+Share-It is an easy way for developers to share their lastest and greatest projects with potential employers. 
+
 ### ERD
 
 [Link to ERD](https://lucid.app/lucidchart/d3e8c572-7226-4910-9774-e2530d0e395d/view?page=0_0#)
