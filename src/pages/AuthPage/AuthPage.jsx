@@ -4,7 +4,7 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 
 
-export default class AuthPage extends React.Component {
+export default class Header extends React.Component {
   state = {
     showLogin: true,
   }
@@ -13,7 +13,6 @@ export default class AuthPage extends React.Component {
     return (
       <main className="AuthPage">
         <div>
-          
           <h3 onClick={() => this.setState({ showLogin: !this.state.showLogin })}>
             {this.state.showLogin ? 'SIGN UP' : 'LOG IN'}
           </h3>
