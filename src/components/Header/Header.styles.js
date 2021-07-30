@@ -12,9 +12,6 @@ export const Content = styled.div`
 `;
 
 export const EmailWrap = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	margin-top: 10rem;
 `;
 
