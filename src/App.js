@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // Add the Route named import
-// import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
+import ProjectPage from './pages/ProjectPage/ProjectPage';
 
 // import Header from './components/Header';
 
@@ -29,8 +30,17 @@ export default class App extends Component {
 		return (
 			<div className="App">
 				<GlobalStyle />
-				{/* <Header /> */}
-				<AuthPage setUserInState={this.setUserInState} />
+				{this.state.user ? (
+					<Switch>
+						<Route
+							path="/orders"
+							render={(props) => <ProjectPage {...props} />}
+						/>
+						<Redirect to="/" />
+					</Switch>
+				) : (
+					<AuthPage setUserInState={this.setUserInState} />
+				)}
 			</div>
 		);
 	}

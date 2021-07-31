@@ -32,24 +32,3 @@ export default class AuthPage extends React.Component {
       );
     }
   }
-
-//   (
-//     <Wrapper>
-//         <Content>
-//             <LogoImg src={ShareItLogo} alt="share-it-logo" />
-//             {/* <AuthPage setUserInState={this.setUserInState} /> */}
-//             <h3
-//                 onClick={() => this.setState({ showLogin: !this.state.showLogin })}
-//             >
-//                 {this.state.showLogin ? 'SIGN UP' : 'LOG IN'}
-//             </h3>
-//         </Content>
-//         <EmailWrap>
-//             {this.state.showLogin ? (
-//                 <LoginForm setUserInState={this.props.setUserInState} />
-//             ) : (
-//                 <SignUpForm setUserInState={this.props.setUserInState} />
-//             )}
-//         </EmailWrap>
-//     </Wrapper>
-// );
