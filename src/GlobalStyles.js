@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
 
         p {
             font-size: var(--fontSmall);
-            color: var(--white);
+            color: var(--darkGrey);
         }
     }
 

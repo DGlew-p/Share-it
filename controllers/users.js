@@ -24,6 +24,7 @@ async function create(req, res) {
 		// the first parameter specifies what we want to put into the token (in this case, our user document)
 		// the second parameter is a "secret" code. This lets our server verify if an incoming jwt is legit or not.
 		const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h' });
+
 		res.status(200).json(token); // send it to the frontend
 	} catch (err) {
 		res.status(400).json(err);
