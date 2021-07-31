@@ -1,3 +1,4 @@
+// import { set } from 'mongoose';
 import { Component } from 'react';
 
 export default class SignUpForm extends Component {
@@ -25,16 +26,20 @@ export default class SignUpForm extends Component {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({name: this.state.name, email: this.state.email, password: this.state.password,})
       })
+      console.log(fetchResponse);
       
       // 2. Check "fetchResponse.ok". False means status code was 4xx from the server/controller action
-      if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
+      if (!fetchResponse.ok) this.setState({error: "We are broken"});
+      // throw new Error
       
       let token = await fetchResponse.json() // 3. decode fetch response to get jwt from srv
+      console.log(token);
       localStorage.setItem('token', token);  // 4. Stick token into localStorage
       
       const userDoc = JSON.parse(atob(token.split('.')[1])).user; // 5. Decode the token + put user document into state
+      console.log(userDoc);
       this.props.setUserInState(userDoc)
-
+      
         } catch (err) {
        }
 }
@@ -42,7 +47,7 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div>
+      <>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <label>Name</label>
@@ -57,7 +62,7 @@ export default class SignUpForm extends Component {
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
+      </>
     );
   }
 }
