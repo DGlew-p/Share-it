@@ -1,6 +1,6 @@
 // import { set } from 'mongoose';
 import { Component } from 'react';
-
+// import {Wrapper, Input} from '../LoginForm/Login.styles'
 export default class SignUpForm extends Component {
   state = {
     name: '',
