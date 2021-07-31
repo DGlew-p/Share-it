@@ -27,7 +27,7 @@ export default class SignUpForm extends Component {
       })
       
       // 2. Check "fetchResponse.ok". False means status code was 4xx from the server/controller action
-      if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
+      if (!fetchResponse.ok) console.log("EOORRRPRPRPRPR")
       
       let token = await fetchResponse.json() // 3. decode fetch response to get jwt from srv
       localStorage.setItem('token', token);  // 4. Stick token into localStorage
