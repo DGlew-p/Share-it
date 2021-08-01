@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 // Add the Route named import
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
 import Logout from './components/UserLogOut/UserLogOut';
-
-// import Header from './components/Header';
 
 //styles
 
@@ -18,22 +16,27 @@ export default class App extends Component {
 	setUserInState = (incomingUserData) => {
 		this.setState({ user: incomingUserData });
 	};
-	// when the page refreshes, check localStorage for the user jwt token
+
 	componentDidMount() {
 		let token = localStorage.getItem('token');
 		if (token) {
-			// YOU DO: check expiry!
 			let userDoc = JSON.parse(atob(token.split('.')[1])).user; // decode jwt token
 			this.setState({ user: userDoc });
 		}
 	}
+
+	userLogout = () => {
+		localStorage.removeItem('token');
+		this.setState({ user: null });
+	};
+
 	render() {
 		return (
 			<div className="App">
 				<GlobalStyle />
 				{this.state.user ? (
 					<div>
-						<Logout />
+						<Logout userLogout={this.userLogout} />
 						<Switch>
 							<Route path="/" render={(props) => <ProjectPage {...props} />} />
 						</Switch>
