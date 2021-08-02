@@ -18,6 +18,7 @@ export default class ProjectForm extends React.Component {
 
 
   addProject = async (e) => {
+    console.log('ADD PROJECT');
     let options = {
       method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -32,46 +33,65 @@ export default class ProjectForm extends React.Component {
     })
   }
 
+  handleSubmit = async (evt) => {
+    evt.preventDefault();
+        try {
+      const fetchResponse = await fetch('/api/projects/new', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          title: this.state.title,
+          image_upload: this.state.image_upload,
+          tech_stack: this.state.tech_stack,
+          project_description:this.state.project_description,})
+      })
+      console.log(fetchResponse);
+      if (!fetchResponse.ok) this.setState({error: "Bad Fetch"})
+        } catch (err) {  console.log("hadleSub BROKE");
+      }
+}
+
 
   render() {
     return (
     <div>
-  <hr />
+
     
     <form>
           <label>
-            <span>Name:</span>
-            <input name='name'
+            <span>Title:</span>
+            <input name='title'
                     value={this.state.title}
                     onChange={this.handleChange}/>
           </label>
           
           <label>
-            <span>Message:</span>
-            <input name='message' 
+            <span>Technologies:</span>
+            <input name='tech_stack' 
                     type="text-area" 
                     value={this.state.tech_stack}
                     onChange={this.handleChange}/>
           </label>
 
           <label>
-            <span>Message:</span>
-            <input name='message' 
+            <span>Project Description:</span>
+            <input name='project_description' 
                     type="text-area" 
                     value={this.state.project_description}
                     onChange={this.handleChange}/>
           </label>
 
           <label>
-            <span>email:</span>
-            <input name='email' 
+            <span>Image:</span>
+            <input name='image_upload' 
                     value={this.state.image_upload}
                     onChange={this.handleChange}/>
           </label>
           
-          <button onClick={this.addProject}>Create</button>
+  
+          <button type="submit">Create</button>
           </form>
-        <hr />
+      
   </div>
     )}
 }

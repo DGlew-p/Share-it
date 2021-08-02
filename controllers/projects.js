@@ -1,5 +1,5 @@
-const Project = require('../model/project');
-const User = require('../model/user');
+const Project = require('../models/projects');
+const User = require('../models/user');
 
 
 function index(req, res) {
@@ -22,17 +22,16 @@ function index(req, res) {
 
 async function create (req, res){
     try {
-        const newProject = new Project(req.body);
-        
-        newProject.objectIdReference = req.user.id;
-        newProject.title = req.body.title;
-        newProject.image.url = req.file.path;
-        newProject.image.imageName = req.file.filename;
-        newProject.tech_stack = req.body.tech_stack;
-        newProject.project_description = req.body.project_description;
-
-        await newProject.save();
-        res.status(200).json('OK!')
+        const Project = await Project.create({
+        // objectIdReference : req.body.user_id,
+        title: req.body.title,
+        image_upload: req.body[url,filename],
+        tech_stack: req.body.tech_stack,
+        project_description: req.body.project_description,
+      })
+      console.log(req.body);
+        // await newProject.save();
+        res.status(200).json()
     } catch(err) {
         return res.status(400).json('Bad Request')
     }

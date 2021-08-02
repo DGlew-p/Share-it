@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
 
         h1 {
             font-size: 2rem;
-            color: var(--white);
+            color: var(--black);
         }
 
         h3 {

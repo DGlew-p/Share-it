@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
-
+import UserLogOut from './components/UserLogOut/UserLogOut';
 // import Header from './components/Header';
 
 //styles
@@ -28,21 +28,24 @@ export default class App extends Component {
 	}
 	render() {
 		return (
-			<div className="App">
-				<GlobalStyle />
-				{this.state.user ? (
-					<Switch>
-						<Route
-							path="/orders"
-							render={(props) => <ProjectPage {...props} />}
-						/>
-						<Redirect to="/" />
-					</Switch>
-				) : (
-					<AuthPage setUserInState={this.setUserInState} />
-				)}
-			</div>
+			<main className="App">
+		
+			  { this.state.user ? 
+			  <div>
+				<UserLogOut/>
+				  <Switch>
+				  <Route path='/project' render={(props) => (
+					<ProjectPage {...props}/>
+				  )}/>
+				  <Redirect to="/project" />
+				</Switch>
+
+				</div>
+				
+				:
+				<AuthPage setUserInState={this.setUserInState}/>
+			  }
+			</main>
 		);
 	  }
 	}
-

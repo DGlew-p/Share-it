@@ -10,7 +10,7 @@ export default function ProjectItem(props) {
      </imagecont>
       <div>{props.tech_stack}</div>
       <div>{props.project_description}</div>
-      <div>{props.timestamps.toLocaleDateString()}</div>
+      {/* <div>{props.timestamps.toLocaleDateString()}</div> */}
       </a>
 
       <div>

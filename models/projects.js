@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const projectSchema = new Schema(
-  {
+const projectSchema = new Schema({
     object_id_reference: {
         type: Schema.Types.ObjectId, ref: 'User'
     },
@@ -10,7 +9,7 @@ const projectSchema = new Schema(
     title: {
       type: String,
       minLength: 1,
-      required: true,
+   
     },
 
     image_upload: {
@@ -20,13 +19,13 @@ const projectSchema = new Schema(
 
     tech_stack: {
       type: String,
-      required: false,
+  
     },
 
     project_description: {
       type: String,
       minLength: 3,
-      required: true,
+   
     },
   },
   {
@@ -34,4 +33,8 @@ const projectSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Project", projectSchema);
+
+
+let ProjectModel = mongoose.model("Project", projectSchema);
+
+module.exports = ProjectModel;
