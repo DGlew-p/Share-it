@@ -21,7 +21,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 // this one is going to do double duty, serving both items and categories-related routes:
 
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/projects', require('./routes/api/projects'));
 
 // The following "catch all" route (note the *)is necessary
 // for a SPA's client-side routing to properly work

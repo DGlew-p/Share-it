@@ -43,7 +43,7 @@ export default class SignUpForm extends Component {
         } catch (err) {
        }
 }
-
+  // let test = 'string';
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
