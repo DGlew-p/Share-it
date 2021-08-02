@@ -47,15 +47,14 @@ async function login(req, res) {
 }
 
 async function update(req, res) {
-	try {
-		const user = await User.create({
-			bio: req.body.bio,
-			location: req.body.location,
-			skills: req.body.skills,
-			image: req.body.image,
-		});
-		res.status(200).json(user);
-	} catch {
-		res.status(400).json('failed to create user profile');
-	}
+	console.log('this is req body', req.body);
+	const updatedUser = await User.find({ user: req.body._id });
+	console.log(updatedUser, 'Am I getting the user');
+	updatedUser.bio = req.body.bio;
+	updatedUser.location = req.body.location;
+	updatedUser.skills = req.body.skills;
+	await updatedUser.save(function (err) {
+		if (err) return res.status(400).json(err);
+		res.status(200).json('Ok');
+	});
 }
