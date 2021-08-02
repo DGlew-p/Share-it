@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
 import Logout from './components/UserLogOut/UserLogOut';
+import NavigationBar from './components/NavigationBarRender';
 
 //styles
 
@@ -32,12 +33,14 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
+			<React.Fragment>
 				<GlobalStyle />
+
 				{this.state.user ? (
 					<div>
 						<Logout userLogout={this.userLogout} />
 						<Switch>
+							<NavigationBar />
 							<Route path="/" render={(props) => <ProjectPage {...props} />} />
 						</Switch>
 					</div>
@@ -46,7 +49,7 @@ export default class App extends Component {
 						<AuthPage setUserInState={this.setUserInState} />
 					</Route>
 				)}
-			</div>
+			</React.Fragment>
 		);
 	}
 }
