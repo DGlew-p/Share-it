@@ -1,7 +1,7 @@
 import React from 'react'
 import ProjectItem from '../../components/ProjectItem/ProjectItem'
 import ProjectForm from '../../components/ProjectForm/ProjectForm'
-
+import NavigationBarRender from '../../components/NavigationBarRender';
 
 
 
@@ -27,12 +27,12 @@ async componentDidMount(){
     render(){
         return(
             <div>
- 
-            <ProjectItem  />
+           <NavigationBarRender />
             <ProjectForm  />
+            <ProjectItem  />
+        
             </div>
         );
     }
-}
 
-
+  }

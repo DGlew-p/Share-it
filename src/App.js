@@ -4,7 +4,7 @@ import { Route, Switch, Redirect} from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
 import Logout from './components/UserLogOut/UserLogOut';
-import NavigationBar from './components/NavigationBarRender';
+
 
 //styles
 
@@ -38,12 +38,13 @@ export default class App extends Component {
 
 				{this.state.user ? (
 				<div>
-				<Logout/>
+			<Logout userLogout={this.userLogout} />
 				  <Switch>
-				  <Route path='/' render={(props) => (
+		
+				  <Route path='/project' render={(props) => (
 					<ProjectPage {...props}/>
 				  )}/>
-				  <Redirect to="/" />
+				  <Redirect to="/project" />
 				</Switch>
 
 				</div>

@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-
     :root {
         --maxWidth: 1280px;
         --white: #fff;
@@ -12,32 +11,24 @@ export const GlobalStyle = createGlobalStyle`
         --fontBig: 1.5rem;
         --fontMedium: 1.2rem;
         --fontSmall: 1rem;
-
-
     }
-
     * {
         box-sizing: border-box;
         font-family: 'Rubik', sans-serif;
     }
-
     body {
         margin: 0;
         padding: 0;
-
         h1 {
             font-size: 2rem;
             color: black;
         }
-
         h3 {
             font-size: 1.1rem;
         }
-
         p {
             font-size: var(--fontSmall);
             color: var(--darkGrey);
         }
     }
-
 `;
