@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react';
 import ProjectItem from '../../components/ProjectItem/ProjectItem'
 import ProjectForm from '../../components/ProjectForm/ProjectForm'
 
