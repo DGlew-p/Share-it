@@ -4,32 +4,12 @@ import ProjectForm from '../../components/ProjectForm/ProjectForm'
 
 
 
-
-export default class ProjectPage extends React.Component {
-
-state = {
-    projects: [],
-    user_id:""
-  }
-
-
-async componentDidMount(){
-    try {
-      let fetchItemsResponse = await fetch('/api/projects')
-      let projects = await fetchItemsResponse.json();
-      this.setState({ projects: projects})
-      // , user: this.user
-    } catch (err) {
-      console.error('ERROR:', err)
-    }
-  }
-
+export default class Projects extends Component {
     render(){
         return(
             <div>
- 
-            <ProjectItem  />
-            <ProjectForm  />
+                
+                <h1>Project Page!</h1>
             </div>
         );
     }

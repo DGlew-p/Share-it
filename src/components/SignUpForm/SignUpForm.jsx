@@ -1,5 +1,8 @@
-// import { set } from 'mongoose';
+
 import { Component } from 'react';
+import { Wrapper, Input } from '../LoginForm/Login.styles';  
+
+
 
 export default class SignUpForm extends Component {
   state = {
@@ -20,7 +23,6 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
         try {
-      // 1. POST our new user info to the server
       const fetchResponse = await fetch('/api/users/signup', {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
@@ -28,15 +30,13 @@ export default class SignUpForm extends Component {
       })
       console.log(fetchResponse);
       
-      // 2. Check "fetchResponse.ok". False means status code was 4xx from the server/controller action
       if (!fetchResponse.ok) this.setState({error: "We are broken"});
-      // throw new Error
       
-      let token = await fetchResponse.json() // 3. decode fetch response to get jwt from srv
+      let token = await fetchResponse.json()
       console.log(token);
-      localStorage.setItem('token', token);  // 4. Stick token into localStorage
+      localStorage.setItem('token', token);
       
-      const userDoc = JSON.parse(atob(token.split('.')[1])).user; // 5. Decode the token + put user document into state
+      const userDoc = JSON.parse(atob(token.split('.')[1])).user;
       console.log(userDoc);
       this.props.setUserInState(userDoc)
       
@@ -50,15 +50,17 @@ export default class SignUpForm extends Component {
       <>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
+            <Wrapper>
+              <label>Name</label>
+              <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+              <label>Email</label>
+              <Input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+              <label>Password</label>
+              <Input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+              <label>Confirm</label>
+              <Input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+              <button type="submit"  disabled={disable}>SIGN UP</button>
+            </Wrapper>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
