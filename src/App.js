@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // Add the Route named import
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
 import Logout from './components/UserLogOut/UserLogOut';
@@ -38,12 +38,12 @@ export default class App extends Component {
 
 				{this.state.user ? (
 				<div>
-				<UserLogOut/>
+				<Logout/>
 				  <Switch>
-				  <Route path='/project' render={(props) => (
+				  <Route path='/' render={(props) => (
 					<ProjectPage {...props}/>
 				  )}/>
-				  <Redirect to="/project" />
+				  <Redirect to="/" />
 				</Switch>
 
 				</div>
