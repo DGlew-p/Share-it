@@ -2,8 +2,8 @@ import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import ShareItLogo from '../../images/share_it.svg';
-import { Wrapper, Content, LogoImg, EmailWrap } from './AuthPage.styles';
-
+import { Wrapper, Content, LogoImg, EmailWrap, LogLink } from './AuthPage.styles';
+import { StylesProvider } from "@material-ui/core/styles";
 export default class AuthPage extends React.Component {
     state = {
       showLogin: true,
@@ -11,14 +11,14 @@ export default class AuthPage extends React.Component {
   
     render() {
       return (
+     <StylesProvider injectFirst>
         <Wrapper>
             <Content>
                 <LogoImg src={ShareItLogo} alt="share-it-logo" />
-                {/* <AuthPage setUserInState={this.setUserInState} /> */}
                 <h3
                     onClick={() => this.setState({ showLogin: !this.state.showLogin })}
                 >
-                    {this.state.showLogin ? 'SIGN UP' : 'LOG IN'}
+                    {this.state.showLogin ? (<LogLink >Sign Up</LogLink>) : <LogLink >Log In</LogLink>}
                 </h3>
             </Content>
             <EmailWrap>
@@ -29,6 +29,7 @@ export default class AuthPage extends React.Component {
                 )}
             </EmailWrap>
         </Wrapper>
+        </StylesProvider>
       );
     }
   }

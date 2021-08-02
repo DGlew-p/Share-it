@@ -1,4 +1,10 @@
 import styled from 'styled-components';
+import { Button } from '@material-ui/core';
+
+export const LogLink = styled(Button)`
+	font-size: 5rem;
+	color: green;
+`;
 
 export const Wrapper = styled.div`
 	padding: 0 20px;
