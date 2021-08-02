@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 // Add the Route named import
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
-import Logout from './components/UserLogOut/UserLogOut';
+import   UserLogOut from './components/UserLogOut/UserLogOut';  // fixed logout import to proper import
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 //styles
 
@@ -11,7 +12,7 @@ import { GlobalStyle } from './GlobalStyles';
 
 export default class App extends Component {
 	state = {
-		user: null,
+		user:null,
 	};
 	setUserInState = (incomingUserData) => {
 		this.setState({ user: incomingUserData });
@@ -25,9 +26,9 @@ export default class App extends Component {
 		}
 	}
 
-	userLogout = () => {
+	handelLogOut = () => {
 		localStorage.removeItem('token');
-		this.setState({ user: null });
+		this.setState({ user: null});  // remove the name and and email from local storage 
 	};
 
 	render() {
@@ -36,9 +37,14 @@ export default class App extends Component {
 				<GlobalStyle />
 				{this.state.user ? (
 					<div>
-						<Logout userLogout={this.userLogout} />
+				<UserLogOut 
+											handelLogOut= {this.handelLogOut}
+											name={this.state.name}
+											email={this.state.email} />
 						<Switch>
-							<Route path="/" render={(props) => <ProjectPage {...props} />} />
+							<Route path="/project" render={(props) => <ProjectPage {...props} />} />
+							<Route path= '/profile'  render={(props) => <ProfilePage {...props} />} /> 
+							<Redirect to="/project" />
 						</Switch>
 					</div>
 				) : (

@@ -17,9 +17,8 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Put API routes here, before the "catch all" route
-
-// this one is going to do double duty, serving both items and categories-related routes:
-
+app.use('api/profile', require('./routes/api/profile'))
+app.use(require('./config/auth'));
 app.use('/api/users', require('./routes/api/users'));
 
 // The following "catch all" route (note the *)is necessary

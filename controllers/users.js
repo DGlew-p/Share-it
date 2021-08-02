@@ -7,6 +7,7 @@ const SALT_ROUNDS = 6; // tell bcrypt how many times to randomize the generation
 module.exports = {
 	create,
 	login,
+
 };
 
 async function create(req, res) {
@@ -44,3 +45,7 @@ async function login(req, res) {
 		res.status(400).json('Bad Credentials');
 	}
 }
+
+
+
+
