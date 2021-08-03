@@ -9,3 +9,5 @@ router.post('/login', usersCtrl.login);
 
 router.put('/profileUpdate', usersCtrl.update);
 module.exports = router;
+
+router.get('/', usersCtrl.index);

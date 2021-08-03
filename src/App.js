@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
-import ProfilePage from './pages/ProfileFormPage/ProfileFormPage';
+import ProfileFormPage from './pages/ProfileFormPage/ProfileFormPage';
+import ProfilesPage from './pages/ProfilesPage/ProfilesPage';
 import Logout from './components/UserLogOut/UserLogOut';
 
 //styles
@@ -46,7 +47,11 @@ export default class App extends Component {
 							/>
 							<Route
 								path="/profile"
-								render={() => <ProfilePage user={this.state.user} />}
+								render={() => <ProfileFormPage user={this.state.user} />}
+							/>
+							<Route
+								path="/all-profiles"
+								render={() => <ProfilesPage user={this.state.user} />}
 							/>
 							<Redirect to="/project" />
 						</Switch>

@@ -8,6 +8,7 @@ module.exports = {
 	create,
 	login,
 	update,
+	index,
 };
 
 async function create(req, res) {
@@ -57,4 +58,13 @@ async function update(req, res) {
 		if (err) return res.status(400).json(err);
 		res.status(200).json('Ok');
 	});
+}
+
+async function index(req, res) {
+	try {
+		let profiles = await User.find({});
+		res.status(200).json(profiles);
+	} catch (err) {
+		res.status(400).json(err);
+	}
 }
