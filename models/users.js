@@ -22,15 +22,12 @@ const userSchema = new Schema(
 		},
 		location: {
 			type: String,
-			required: true,
 		},
 		bio: {
 			type: String,
-			required: true,
 		},
 		skills: {
 			type: String,
-			required: true,
 		},
 	},
 	{
