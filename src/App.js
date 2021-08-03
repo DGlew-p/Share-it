@@ -45,6 +45,7 @@ export default class App extends Component {
 									<ProjectPage {...props} user={this.state.user} />
 								)}
 							/>
+							<Route path="/profile" render={(props) => (<ProfilePage {...props} user={this.state.user})}
 							<Redirect to="/project" />
 						</Switch>
 					</div>
