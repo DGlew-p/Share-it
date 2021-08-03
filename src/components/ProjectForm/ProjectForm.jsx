@@ -1,15 +1,15 @@
 
-import React from 'react'
+import { Component } from 'react';
+import { Wrapper, Input } from './ProjectForm.styles';  
 
-
-
-export default class ProjectForm extends React.Component {
+export default class ProjectForm extends Component {
 
   state = {
-    title: "", 
-    image_upload: "", 
-    tech_stack: "",
-    project_description:"",
+  title:"",
+  tech_stack:"",
+  project_description:"",
+  object_id_reference:""
+
   };
 
   handleChange = (e) => {
@@ -17,81 +17,65 @@ export default class ProjectForm extends React.Component {
   };
 
 
-  addProject = async (e) => {
-    console.log('ADD PROJECT');
-    let options = {
-      method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({...this.state})
-    }
-    await fetch ("./api/projects", options)
-    .then (res => res.json())
-    .then(data=>{
-      this.setState({
-        projects:[]
-      })
-    })
-  }
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
+    this.setState( {object_id_reference:this.props.user._id});
         try {
-      const fetchResponse = await fetch('/api/projects/new', {
-        method: 'POST',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-          title: this.state.title,
-          image_upload: this.state.image_upload,
-          tech_stack: this.state.tech_stack,
-          project_description:this.state.project_description,})
+          let jwt = localStorage.getItem('token')
+          const fetchResponse = await fetch('/api/projects/new', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt},
+            body: JSON.stringify({title:this.state.title , tech_stack:this.state.tech_stack, project_description:this.state.project_description, object_id_reference:this.props.user._id})
       })
-      console.log(fetchResponse);
-      if (!fetchResponse.ok) this.setState({error: "Bad Fetch"})
-        } catch (err) {  console.log("hadleSub BROKE");
-      }
-}
+      let serverResponse = await fetchResponse.json()
+      this.setState({})
+      console.log("handlesub SERVER RESP:", serverResponse)
+    
+     } catch (err) {
+       console.log('BAD FETCH' , err);
+        }
+  }
+
 
 
   render() {
     return (
-    <div>
-		
-    
-    <form>
-          <label>
-            <span>Title:</span>
-            <input name='title'
+    <div className="form-container">
+          <form autoComplete="on" onSubmit={this.handleSubmit}>   
+           <Wrapper>
+          <label>Title:</label>
+            <Input name='title'
                     value={this.state.title}
                     onChange={this.handleChange}/>
-          </label>
           
-          <label>
-            <span>Technologies:</span>
-            <input name='tech_stack' 
+          
+          
+          <label>Technologies:</label>
+            <Input name='tech_stack' 
                     type="text-area" 
                     value={this.state.tech_stack}
                     onChange={this.handleChange}/>
-          </label>
+        
 
-          <label>
-            <span>Project Description:</span>
-            <input name='project_description' 
+          
+        <label>Project Description:</label>
+            <Input name='project_description' 
                     type="text-area" 
                     value={this.state.project_description}
                     onChange={this.handleChange}/>
-          </label>
+         
 
-          <label>
-            <span>Image:</span>
-            <input name='image_upload' 
+          {/* <label>Image:</label>
+            <Input name='image_upload' 
                     value={this.state.image_upload}
-                    onChange={this.handleChange}/>
-          </label>
+                    onChange={this.handleChange}/> */}
+         
           
   
           <button type="submit">Create</button>
+          </Wrapper>
           </form>
-      
   </div>
     )}
 }

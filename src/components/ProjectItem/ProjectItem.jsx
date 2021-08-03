@@ -5,6 +5,7 @@ export default function ProjectItem(props) {
     <div>
         <a href='project / project._id'>
       <h1>{props.title}</h1>
+
       <image class="image">
         <img src={props.image_upload} alt=""></img>
      </image>
@@ -22,8 +23,7 @@ export default function ProjectItem(props) {
             Delete this Project
           </button>
 
-          <button>
-          </button>
+       
 
           </div>
  
