@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 // Add the Route named import
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
 import Logout from './components/UserLogOut/UserLogOut';
-
 
 //styles
 
@@ -37,17 +36,18 @@ export default class App extends Component {
 				<GlobalStyle />
 
 				{this.state.user ? (
-				<div>
-			<Logout userLogout={this.userLogout} />
-				  <Switch>
-		
-				  <Route path='/project' render={(props) => (
-					<ProjectPage {...props}/>
-				  )}/>
-				  <Redirect to="/project" />
-				</Switch>
-
-				</div>
+					<div>
+						<Logout userLogout={this.userLogout} />
+						<Switch>
+							<Route
+								path="/project"
+								render={(props) => (
+									<ProjectPage {...props} user={this.state.user} />
+								)}
+							/>
+							<Redirect to="/project" />
+						</Switch>
+					</div>
 				) : (
 					<Route>
 						<AuthPage setUserInState={this.setUserInState} />
@@ -55,5 +55,5 @@ export default class App extends Component {
 				)}
 			</React.Fragment>
 		);
-	  }
 	}
+}

@@ -20,17 +20,15 @@ const userSchema = new Schema(
 			minLength: 3,
 			required: true,
 		},
+		displayName: { type: String },
 		location: {
 			type: String,
-			required: true,
 		},
 		bio: {
 			type: String,
-			required: true,
 		},
 		skills: {
 			type: String,
-			required: true,
 		},
 	},
 	{

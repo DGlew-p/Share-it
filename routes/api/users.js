@@ -7,5 +7,6 @@ router.post('/signup', usersCtrl.create);
 // POST /api/users/login
 router.post('/login', usersCtrl.login);
 
-router.put('/profileUpdate', usersCtrl.update);
+// router.put('/profileUpdate/:id', usersCtrl.update);
+
 module.exports = router;

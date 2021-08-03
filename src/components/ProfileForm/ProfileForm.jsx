@@ -18,7 +18,7 @@ export default class ProfileForm extends Component {
     evt.preventDefault();
         try {
         let jwt = localStorage.getItem('token');
-        const fetchResponse = await fetch('/api/users/profileUpdate', {
+        const fetchResponse = await fetch('/api/users/profileUpdate/:id', {
         method: 'PUT',
         headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
         body: JSON.stringify({ bio: this.state.bio, location: this.state.location,skills: this.state.skills})
