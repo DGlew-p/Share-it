@@ -1,11 +1,14 @@
 import {Component} from 'react';
-import { Wrapper, Input } from '../LoginForm/Login.styles';  
+import { Wrapper, Input } from '../LoginForm/Login.styles';
+import { Redirect } from 'react-router-dom';
 
 export default class ProfileForm extends Component {
   state = {
     bio: '',
     location: '',
-    skills: '', 
+    skills: '',
+    redirect: false,
+     
   };
 
   handleChange = (evt) => {
@@ -21,7 +24,7 @@ export default class ProfileForm extends Component {
         const fetchResponse = await fetch('/api/users/profileUpdate', {
         method: 'PUT',
         headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
-        body: JSON.stringify({ bio: this.state.bio, location: this.state.location,skills: this.state.skills})
+        body: JSON.stringify({ bio: this.state.bio, location: this.state.location,skills: this.state.skills, object_id_reference: this.props.user._id})
       })
     //   console.log(fetchResponse);
       

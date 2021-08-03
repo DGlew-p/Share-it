@@ -47,9 +47,9 @@ async function login(req, res) {
 }
 
 async function update(req, res) {
-	console.log('this is req body', req.body);
-	const updatedUser = await User.find({ user: req.body._id });
-	console.log(updatedUser, 'Am I getting the user');
+	console.log(req.body.object_id_reference);
+	const updatedUser = await User.findById(req.body.object_id_reference);
+
 	updatedUser.bio = req.body.bio;
 	updatedUser.location = req.body.location;
 	updatedUser.skills = req.body.skills;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // Add the Route named import
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Logout from './components/UserLogOut/UserLogOut';
-
 
 //styles
 
@@ -19,12 +19,12 @@ export default class App extends Component {
 	};
 
 	componentDidMount() {
-		let token = localStorage.getItem('token')
+		let token = localStorage.getItem('token');
 		if (token) {
-		  let userDoc = JSON.parse(atob(token.split('.')[1])).user // decode jwt token
-		  this.setState({user: userDoc})      
+			let userDoc = JSON.parse(atob(token.split('.')[1])).user; // decode jwt token
+			this.setState({ user: userDoc });
 		}
-	  }
+	}
 
 	userLogout = () => {
 		localStorage.removeItem('token');
@@ -37,16 +37,20 @@ export default class App extends Component {
 				<GlobalStyle />
 
 				{this.state.user ? (
-				<div>
-			<Logout userLogout={this.userLogout} />
-				  <Switch>
-				  <Route path='/project' render={() => (
-					<ProjectPage user={this.state.user} />
-				  )}/>
-				  <Redirect to="/project" />
-				</Switch>
-
-				</div>
+					<div>
+						<Logout userLogout={this.userLogout} />
+						<Switch>
+							<Route
+								path="/project"
+								render={() => <ProjectPage user={this.state.user} />}
+							/>
+							<Route
+								path="/profile"
+								render={() => <ProfilePage user={this.state.user} />}
+							/>
+							<Redirect to="/project" />
+						</Switch>
+					</div>
 				) : (
 					<Route>
 						<AuthPage setUserInState={this.setUserInState} />
@@ -54,5 +58,5 @@ export default class App extends Component {
 				)}
 			</React.Fragment>
 		);
-	  }
 	}
+}
