@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/users');
 const jwt = require('jsonwebtoken'); // import the jwt library
 const bcrypt = require('bcrypt'); // import bcrypt
 
@@ -7,6 +7,8 @@ const SALT_ROUNDS = 6; // tell bcrypt how many times to randomize the generation
 module.exports = {
 	create,
 	login,
+	update,
+	index,
 };
 
 async function create(req, res) {
@@ -42,5 +44,27 @@ async function login(req, res) {
 		res.status(200).json(token);
 	} catch {
 		res.status(400).json('Bad Credentials');
+	}
+}
+
+async function update(req, res) {
+	console.log(req.body.object_id_reference);
+	const updatedUser = await User.findById(req.body.object_id_reference);
+
+	updatedUser.bio = req.body.bio;
+	updatedUser.location = req.body.location;
+	updatedUser.skills = req.body.skills;
+	await updatedUser.save(function (err) {
+		if (err) return res.status(400).json(err);
+		res.status(200).json('Ok');
+	});
+}
+
+async function index(req, res) {
+	try {
+		let profiles = await User.find({});
+		res.status(200).json(profiles);
+	} catch (err) {
+		res.status(400).json(err);
 	}
 }

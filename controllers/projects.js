@@ -1,6 +1,4 @@
 const Project = require('../models/projects');
-const User = require('../models/user');
-
 
 function index(req, res) {
     Project.find({}, function(err, project) {
@@ -60,10 +58,9 @@ async function create (req, res){
 //   }
 
 module.exports = {
-    index,
-    create,
-    // update,
-    // delete: deleteProject,
-    // projectDetail,
-
-} 
+	index,
+	create,
+	// update,
+	// delete: deleteProject,
+	// projectDetail,
+};
