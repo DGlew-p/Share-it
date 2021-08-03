@@ -1,4 +1,5 @@
 import "./ProjectItem.css";
+import {Image} from 'cloudinary-react';
 
 export default function ProjectItem(props) {
   return (
@@ -14,6 +15,14 @@ export default function ProjectItem(props) {
       </a>
 
       <div>
+
+      <div>
+                <h1>Hello, world!</h1>
+                <Image cloudName="demo" publicId="sample" width="300" crop="scale"/>
+            
+         
+            </div>,
+
           <button>
             Edit this Project
           </button>
