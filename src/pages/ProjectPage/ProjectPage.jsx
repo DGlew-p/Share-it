@@ -53,8 +53,8 @@ export default class ProjectPage extends React.Component {
 
 state = {
     projects: [],
-    searchNodes: "",
-  }
+    
+    }
 
 
 async componentDidMount(){
@@ -74,11 +74,11 @@ async componentDidMount(){
         return(
             <div>
            <NavigationBarRender />
-            <ProjectForm  />
+            <ProjectForm  user={this.props.user}/>
             <ProjectItem  />
             <ProfileForm user={this.state.user} />
             </div>
         );
-    }
+    }s
 
   }

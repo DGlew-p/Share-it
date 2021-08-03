@@ -2,14 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const projectSchema = new Schema({
-    object_id_reference: {
-        type: Schema.Types.ObjectId, ref: 'User'
-    },
-    
-    title: {
+
+      title: {
       type: String,
-      minLength: 1,
-   
     },
 
     image_upload: {
@@ -19,16 +14,16 @@ const projectSchema = new Schema({
 
     tech_stack: {
       type: String,
-  
     },
 
     project_description: {
       type: String,
-      minLength: 3,
-   
     },
+
+    object_id_reference: {
+      type: Schema.Types.ObjectId, ref: 'User'
   },
-  {
+},{
     timestamps: true,
   }
 );

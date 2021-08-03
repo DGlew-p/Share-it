@@ -42,7 +42,7 @@ export default class SignUpForm extends Component {
     return (
       <>
         <div onSubmit={this.handleSubmit}>
-          <form autoComplete="off" >
+          <form autoComplete="on" >
             <Wrapper>
             <label>Email</label>
             <Input type="text" name="email" value={this.state.email} onChange={this.handleChange} required />
