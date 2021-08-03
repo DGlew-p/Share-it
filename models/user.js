@@ -18,7 +18,24 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
+  image:{
+    type: String,
+    required: true
+  },
+  location:{
+    type: String,
+    required: true
+  }, 
+  bio:{
+    type:String, 
+    required: true
+  }, 
+  skills: {
+    type: String,
+    required: true
+  },
+
 }, {
   timestamps: true,
   toJSON: {

@@ -3,9 +3,16 @@ import { Wrapper, Input } from '../LoginForm/Login.styles';
 
 export default class ProfileForm extends Component {
   state = {
+<<<<<<< HEAD
     bio: "",
     location: "",
     skills: "", 
+=======
+    bio: '',
+    location: '',
+    skills: '', 
+    image: '',
+>>>>>>> 73465aa13671c28ac9759c628e49a82233e607b8
   };
 
   handleChange = (evt) => {
@@ -15,10 +22,16 @@ export default class ProfileForm extends Component {
   };
 
   handleSubmit = async (evt) => {
+<<<<<<< HEAD
     console.log('are you hitting');
     evt.preventDefault();
         try {
       const fetchResponse = await fetch('/api/profile/form', {
+=======
+    evt.preventDefault();
+        try {
+      const fetchResponse = await fetch('/api/', {
+>>>>>>> 73465aa13671c28ac9759c628e49a82233e607b8
         method: 'POST',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ bio: this.state.bio, location: this.state.location,skills: this.state.skills,image:this.state.image,})
