@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
+import ProfilePage from './pages/ProfileFormPage/ProfileFormPage';
 import Logout from './components/UserLogOut/UserLogOut';
 
 //styles
