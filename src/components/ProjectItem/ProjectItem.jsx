@@ -6,9 +6,10 @@ export default function ProjectItem(props) {
     <div>
         <a href='project / project._id'>
       <h1>{props.title}</h1>
-      <div class="image">
-    <img src={props.image_upload}></img>
-     </div>
+
+      <image class="image">
+        <img src={props.image_upload} alt=""></img>
+     </image>
       <div>{props.tech_stack}</div>
       <div>{props.project_description}</div>
       {/* <div>{props.timestamps.toLocaleDateString()}</div> */}

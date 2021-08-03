@@ -5,7 +5,6 @@ const { storage } = require('../../cloudinary/index');
 const upload = multer({ storage });
 const projectCtrl = require('../../controllers/projects');
 
-
 router.get('/', projectCtrl.index);
 // router.post('/new', projectCtrl.create);
 router.post('/new', upload.single('image'), projectCtrl.create);
@@ -14,8 +13,6 @@ router.post('/new', upload.single('image'), projectCtrl.create);
 // router.get('/:id', projectCtrl.show);
 // router.get('/:id/edit', projectCtrl.edit);
 
-
 // router.delete('/:id', projectCtrl.delete);
-
 
 module.exports = router;
