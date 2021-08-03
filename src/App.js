@@ -19,12 +19,12 @@ export default class App extends Component {
 	};
 
 	componentDidMount() {
-		let token = localStorage.getItem('token');
+		let token = localStorage.getItem('token')
 		if (token) {
-			let userDoc = JSON.parse(atob(token.split('.')[1])).user; // decode jwt token
-			this.setState({ user: userDoc });
+		  let userDoc = JSON.parse(atob(token.split('.')[1])).user // decode jwt token
+		  this.setState({user: userDoc})      
 		}
-	}
+	  }
 
 	userLogout = () => {
 		localStorage.removeItem('token');
@@ -40,9 +40,8 @@ export default class App extends Component {
 				<div>
 			<Logout userLogout={this.userLogout} />
 				  <Switch>
-		
-				  <Route path='/project' render={(props) => (
-					<ProjectPage {...props}/>
+				  <Route path='/project' render={() => (
+					<ProjectPage user={this.state.user} />
 				  )}/>
 				  <Redirect to="/project" />
 				</Switch>

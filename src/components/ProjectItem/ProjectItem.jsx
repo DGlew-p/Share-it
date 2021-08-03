@@ -5,9 +5,9 @@ export default function ProjectItem(props) {
     <div>
         <a href='project / project._id'>
       <h1>{props.title}</h1>
-      <imagecont class="image">
+      <div class="image">
     <img src={props.image_upload}></img>
-     </imagecont>
+     </div>
       <div>{props.tech_stack}</div>
       <div>{props.project_description}</div>
       {/* <div>{props.timestamps.toLocaleDateString()}</div> */}
@@ -22,8 +22,7 @@ export default function ProjectItem(props) {
             Delete this Project
           </button>
 
-          <button>
-          </button>
+       
 
           </div>
  
