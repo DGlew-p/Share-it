@@ -1,7 +1,7 @@
 
 import { Component, useState } from 'react';
 import { Wrapper, Input } from './ProjectForm.styles';  
-import PhotosUploader from '../PhotosUploader/PhotosUploader'
+
 
 import React from 'react'
 
@@ -60,7 +60,7 @@ export default class ProjectForm extends Component {
     return (
 
     <div className="form-container">
-            <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script> 
+   
           <form autoComplete="on" 
                 onSubmit={this.handleSubmit}
                 enctype="multipart/form-data">   
@@ -98,8 +98,7 @@ export default class ProjectForm extends Component {
          <i class="fas fa-upload"></i>
          <span class="file-label"> Choose a file… </span>
 
-{/* 
-<PhotosUploader/> */}
+
 
 
   
