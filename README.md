@@ -2,7 +2,19 @@
 
 ### Description
 
-Share-It is an easy way for developers to share their lastest and greatest projects with potential employers. 
+Share-It is an easy way for developers to share their lastest and greatest projects with potential employers. A community to help foster developer skills and build long term connections. 
+<h3>Screenshots of the App</h3>
+<img src='images/camera.jpg'>
+![](process-images/camera.jpg)
+<h3>Technologies Used</h3>
+<ul>
+  <li>Node.js</li>
+  <li>Express</li>
+  <li>Mongoose</li>
+  <li>Styled Components</li>
+  <li>JWT Javascript Web Token</li>
+  <li>React</li>
+</ul>
 
 ### ERD
 
