@@ -1,6 +1,4 @@
 const Project = require('../models/projects');
-const User = require('../models/user');
-
 
 function index(req, res) {
     Project.find({}, function(err, project) {
@@ -24,8 +22,8 @@ async function create (req, res){
     try {
        let thing = await Project.create(req.body)
        console.log(thing+"   THING")
-          // project.image_upload.url= req.file.path;
-          // project.image_upload.filename = req.file.filename;
+          // image.url= req.file.path;
+          // image.filename = req.file.filename;
           res.status(200).json('CREATE');
       }
       catch(err) {
@@ -52,18 +50,17 @@ async function create (req, res){
 //     }
 //   };
 
-//   async function deleteProject(req, res) {
-//     await Project.findByIdAndDelete(req.body.id, function (err) {
-//       if (err) return res.status(400).json(err);
-//       res.status(200).json("deleted");
-//     });
-//   }
+async function deleteProject(req, res) {
+	await Project.findByIdAndDelete(req.body.id, function (err) {
+	  if (err) return res.status(400).json(err);
+	  res.status(200).json("deleted");
+	});
+  }
 
 module.exports = {
-    index,
-    create,
-    // update,
-    // delete: deleteProject,
-    // projectDetail,
-
-} 
+	index,
+	create,
+	// update,
+	delete: deleteProject,
+	// projectDetail,
+};

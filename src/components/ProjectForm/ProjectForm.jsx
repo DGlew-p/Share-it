@@ -1,6 +1,10 @@
 
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import { Wrapper, Input } from './ProjectForm.styles';  
+import NavigationBarRender from '../NavigationBarRender';
+
+import React from 'react'
+
 
 export default class ProjectForm extends Component {
 
@@ -8,9 +12,10 @@ export default class ProjectForm extends Component {
   title:"",
   tech_stack:"",
   project_description:"",
-  object_id_reference:""
+  // image:{url:"1",filename:"2"}
 
   };
+
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -20,17 +25,29 @@ export default class ProjectForm extends Component {
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
-    this.setState( {object_id_reference:this.props.user._id});
+
         try {
           let jwt = localStorage.getItem('token')
           const fetchResponse = await fetch('/api/projects/new', {
             method: 'POST',
             headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt},
-            body: JSON.stringify({title:this.state.title , tech_stack:this.state.tech_stack, project_description:this.state.project_description, object_id_reference:this.props.user._id})
+            body: JSON.stringify({
+              image:this.state.image,
+              title:this.state.title ,
+              tech_stack:this.state.tech_stack,
+              project_description:this.state.project_description,
+              object_id_reference:this.props.user._id
+            })
       })
-      let serverResponse = await fetchResponse.json()
-      this.setState({})
-      console.log("handlesub SERVER RESP:", serverResponse)
+      await fetchResponse.json()
+      console.log(fetchResponse+"   FORM FETCH")
+      this.setState({
+        title:"",
+        tech_stack:"",
+        project_description:"",
+        // image:{url:"",filename:""}
+      })
+
     
      } catch (err) {
        console.log('BAD FETCH' , err);
@@ -41,8 +58,14 @@ export default class ProjectForm extends Component {
 
   render() {
     return (
+      <>
+      <NavigationBarRender />
+
     <div className="form-container">
-          <form autoComplete="on" onSubmit={this.handleSubmit}>   
+   
+          <form autoComplete="on" 
+                onSubmit={this.handleSubmit}
+                enctype="multipart/form-data">   
            <Wrapper>
           <label>Title:</label>
             <Input name='title'
@@ -66,16 +89,25 @@ export default class ProjectForm extends Component {
                     onChange={this.handleChange}/>
          
 
-          {/* <label>Image:</label>
-            <Input name='image_upload' 
-                    value={this.state.image_upload}
-                    onChange={this.handleChange}/> */}
-         
-          
+
+
+
+{/*  
+         <label>Upload An Image</label>
+         <input class="file-input" 
+                type="file" name="image"
+                onChange={this.handleChange}/>
+         <i class="fas fa-upload"></i>
+         <span class="file-label"> Choose a file… </span>
+
+ */}
+
+
   
           <button type="submit">Create</button>
           </Wrapper>
           </form>
   </div>
+  </>
     )}
 }
