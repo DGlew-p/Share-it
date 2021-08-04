@@ -10,14 +10,13 @@ export default function ProjectItem(props) {
         <div>{props.project_description}</div>
         <div>last updated:{(props.updatedAt)}</div>
   
-{/* 
-      <button onClick={() => props.editProject(props._id)}>
-        Edit this Project
-      </button> */}
-
-      <button onClick={() => props.handleProjectDelete(props._id)}>
-        Delete this Project
-      </button>
+    {props.showMine === true?  
+      <section>
+      <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>
+      </section>
+     :
+    <section></section>
+    }
     </div>
   );
 }
