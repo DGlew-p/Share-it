@@ -50,17 +50,17 @@ async function create (req, res){
 //     }
 //   };
 
-//   async function deleteProject(req, res) {
-//     await Project.findByIdAndDelete(req.body.id, function (err) {
-//       if (err) return res.status(400).json(err);
-//       res.status(200).json("deleted");
-//     });
-//   }
+async function deleteProject(req, res) {
+	await Project.findByIdAndDelete(req.body.id, function (err) {
+	  if (err) return res.status(400).json(err);
+	  res.status(200).json("deleted");
+	});
+  }
 
 module.exports = {
 	index,
 	create,
 	// update,
-	// delete: deleteProject,
+	delete: deleteProject,
 	// projectDetail,
 };

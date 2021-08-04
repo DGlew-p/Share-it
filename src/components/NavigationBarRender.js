@@ -11,14 +11,17 @@ export default function NavigationBar() {
 					{/* <Navbar.Toggle aria-controls="basic-navbar-nav">
 						<Navbar.Collapse id="basic-navbar-nav"> */}
 					<Nav className="ml-auto">
-						<Nav.Item>
-							<Nav.Link href="#">Create Project</Nav.Link>
+					<Nav.Item>
+							<Nav.Link href="/project">All Projects</Nav.Link>
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link href="#">Create Profile</Nav.Link>
+							<Nav.Link href="/new-project">Create Project</Nav.Link>
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link href="#">All Profiles</Nav.Link>
+							<Nav.Link href="/new-profile">Create Profile</Nav.Link>
+						</Nav.Item>
+						<Nav.Item>
+							<Nav.Link href="/all-profiles">All Profiles</Nav.Link>
 						</Nav.Item>
 					</Nav>
 					{/* </Navbar.Collapse>

@@ -1,7 +1,7 @@
 
 import { Component, useState } from 'react';
 import { Wrapper, Input } from './ProjectForm.styles';  
-
+import NavigationBarRender from '../NavigationBarRender';
 
 import React from 'react'
 
@@ -12,7 +12,7 @@ export default class ProjectForm extends Component {
   title:"",
   tech_stack:"",
   project_description:"",
-  image:{url:"1",filename:"2"}
+  // image:{url:"1",filename:"2"}
 
   };
 
@@ -58,6 +58,8 @@ export default class ProjectForm extends Component {
 
   render() {
     return (
+      <>
+      <NavigationBarRender />
 
     <div className="form-container">
    
@@ -90,7 +92,7 @@ export default class ProjectForm extends Component {
 
 
 
- 
+{/*  
          <label>Upload An Image</label>
          <input class="file-input" 
                 type="file" name="image"
@@ -98,7 +100,7 @@ export default class ProjectForm extends Component {
          <i class="fas fa-upload"></i>
          <span class="file-label"> Choose a file… </span>
 
-
+ */}
 
 
   
@@ -106,5 +108,6 @@ export default class ProjectForm extends Component {
           </Wrapper>
           </form>
   </div>
+  </>
     )}
 }
