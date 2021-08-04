@@ -43,7 +43,7 @@ export default class App extends Component {
 						<Logout userLogout={this.userLogout} />
 						<Switch>
 							<Route
-								path="/project"
+								path="/all-projects"
 								render={() => <ProjectPage user={this.state.user} />}
 							/>
 							<Route
@@ -58,7 +58,7 @@ export default class App extends Component {
 								path="/single-profile/:id"
 								render={(props) => <SingleProfilePage {...props} />}
 							/>
-							<Redirect to="/project" />
+							<Redirect to="/all-projects" />
 						</Switch>
 					</div>
 				) : (
