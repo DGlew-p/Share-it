@@ -9,34 +9,19 @@ export default class AllProfiles extends Component {
 
 
 
-    // aysnc function getProfiles(){
-    //     try {
-    //         let jwt = localStorage.getItem('token');
-    //         let fetchProfileResponse = await fetch('api/users/', { headers: {'Authorization': 'Bearer ' + jwt}});
-    //         if(!fetchProfileResponse.ok) throw new Error('Could Grab Profiles');
-    //         let profiles = await fetchProfileResponse.json();
-    //         this.setState({ profilesHistory: profiles});
-    //     } catch(err){
-    //         console.error('Error:', err)// log if error
+    async function componentDidMount(){
+        try {
+            let jwt = localStorage.getItem('token');
+            let fetchProfileResponse = await fetch('api/users/', { headers: {'Authorization': 'Bearer ' + jwt}});
+            if(!fetchProfileResponse.ok) throw new Error('Could Grab Profiles');
+            let profiles = await fetchProfileResponse.json();
+            this.setState({ profilesHistory: profiles});
+        } catch(err){
+            console.error('Error:', err)// log if error
 
-    //     }   
-    // }
-
-    getFreshData = async () => {
-        this.setState({
-          profilesHistory: await getProfiles(),
-        });
-      }
-
-
-      componentDidMount = async () => {
-        this.setState({
-          profilesHistory: await getProfiles(),
-        });
-      }
+        }   
+    }
     
-
-
 
 
 
