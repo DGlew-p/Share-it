@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
+import NavigationBarRender from "../../components/NavigationBarRender";
 
 export default class AllProfiles extends Component {
 
@@ -8,12 +9,11 @@ export default class AllProfiles extends Component {
     }
 
 
-
-    async function componentDidMount(){
+    async componentDidMount(){
         try {
             let jwt = localStorage.getItem('token');
             let fetchProfileResponse = await fetch('api/users/', { headers: {'Authorization': 'Bearer ' + jwt}});
-            if(!fetchProfileResponse.ok) throw new Error('Could Grab Profiles');
+            if(!fetchProfileResponse.ok) return 'Could NOT Grab Profiles';
             let profiles = await fetchProfileResponse.json();
             this.setState({ profilesHistory: profiles});
         } catch(err){
@@ -21,9 +21,27 @@ export default class AllProfiles extends Component {
 
         }   
     }
-    
 
 
+    async getProfiles() {
+        try {
+            let jwt = localStorage.getItem('token');
+            let fetchProfileResponse = await fetch('api/users/', { headers: {'Authorization': 'Bearer ' + jwt}});
+            if(!fetchProfileResponse.ok) return 'Could NOT Grab Profiles';
+            let profiles = await fetchProfileResponse.json();
+            this.setState({ profilesHistory: profiles});
+        } catch(err){
+            console.error('Error:', err)// log if error
+
+        }   
+    }
+      
+
+    handleProfileDelete = async (id)=>{
+        await this.deleteProfile(id)
+        this.getProfiles()
+        
+      }
 
     async deleteProfile(id) {
         let profileRes = await fetch('./api/users/',{
@@ -34,16 +52,16 @@ export default class AllProfiles extends Component {
           body: JSON.stringify({id})
         })
         let profile = await profileRes.json()
-        this.getFreshData()
         return profile
       }
     
     render(){
         return (
             <div>
+                <NavigationBarRender/>
                 <h1>All Profiles</h1>
                 {this.state.profilesHistory.map(profile => (
-                    <ProfileCard deleteProfile={this.deleteProfile}{...profile} />
+                    <ProfileCard getAll = {this.getAll} handleProfileDelete={this.handleProfileDelete}{...profile} />
                 ))}
             </div>
         )
