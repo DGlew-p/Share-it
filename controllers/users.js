@@ -9,6 +9,7 @@ module.exports = {
 	login,
 	update,
 	index,
+	show,
 };
 
 async function create(req, res) {
@@ -64,6 +65,16 @@ async function index(req, res) {
 	try {
 		let profiles = await User.find({});
 		res.status(200).json(profiles);
+	} catch (err) {
+		res.status(400).json(err);
+	}
+}
+
+async function show(req, res) {
+	try {
+		const profile = await User.findById(req.params.id);
+		console.log(profile);
+		res.status(200).json(profile);
 	} catch (err) {
 		res.status(400).json(err);
 	}

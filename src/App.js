@@ -5,6 +5,7 @@ import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
 import ProfileFormPage from './pages/ProfileFormPage/ProfileFormPage';
 import ProfilesPage from './pages/ProfilesPage/ProfilesPage';
+import SingleProfilePage from './pages/SingleProfilePage/SingleProfilePage';
 import Logout from './components/UserLogOut/UserLogOut';
 
 //styles
@@ -52,6 +53,10 @@ export default class App extends Component {
 							<Route
 								path="/all-profiles"
 								render={() => <ProfilesPage user={this.state.user} />}
+							/>
+							<Route
+								path="/single-profile/:id"
+								render={(props) => <SingleProfilePage {...props} />}
 							/>
 							<Redirect to="/project" />
 						</Switch>
