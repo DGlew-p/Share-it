@@ -1,6 +1,6 @@
 
 import { Component } from 'react';
-import { Wrapper, Input } from '../LoginForm/Login.styles';  
+import { Wrapper, Input, Button } from '../LoginForm/Login.styles';  
 
 
 
@@ -59,7 +59,7 @@ export default class SignUpForm extends Component {
               <Input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
               <label>Confirm</label>
               <Input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-              <button type="submit"  disabled={disable}>SIGN UP</button>
+              <Button type="submit"  disabled={disable}>SIGN UP</Button>
             </Wrapper>
           </form>
         </div>
