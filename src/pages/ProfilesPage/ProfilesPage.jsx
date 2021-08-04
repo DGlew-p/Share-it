@@ -1,19 +1,23 @@
 import { Component } from 'react';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
 import NavigationBarRender from "../../components/NavigationBarRender";
+import SingleProfileCard from '../../components/SingleProfileCard/SingleProfileCard'
 
 export default class AllProfiles extends Component {
 
     state = {
-        profilesHistory: []
+        profilesHistory: [],
+        profileSingle: {},
+        list: true,
+        card: false,
+
     }
 
 
     async componentDidMount(){
         try {
-            let jwt = localStorage.getItem('token');
-            let fetchProfileResponse = await fetch('api/users/', { headers: {'Authorization': 'Bearer ' + jwt}});
-            if(!fetchProfileResponse.ok) return 'Could NOT Grab Profiles';
+            let fetchProfileResponse = await fetch('api/users/');
+            if(!fetchProfileResponse.ok) throw new Error('Could Not Grab Profiles');
             let profiles = await fetchProfileResponse.json();
             this.setState({ profilesHistory: profiles});
         } catch(err){
@@ -54,16 +58,36 @@ export default class AllProfiles extends Component {
         let profile = await profileRes.json()
         return profile
       }
+    showProfile = (id) => {
+		fetch(`api/users/${id}`)
+			.then((response) => response.json())
+			.then((responseJson) => {
+				this.setState({ profileSingle: responseJson.data});
+			});
+	};
+
+    showList = () => {
+        this.setState({ card: false, list: true })
+    }
+
+    showCard = () => {
+        this.setState({ card: true, list: false})
+    }
     
     render(){
         return (
             <div>
                 <NavigationBarRender/>
                 <h1>All Profiles</h1>
-                {this.state.profilesHistory.map(profile => (
-                    <ProfileCard getAll = {this.getAll} handleProfileDelete={this.handleProfileDelete}{...profile} />
+            
+                {this.state.profilesHistory.map((profile) => (
+                   
+                    <ProfileCard key={profile._id} {...profile} handleProfileDelete={this.handleProfileDelete} showProfile={this.showProfile}/>
+                    // <button onClick={() => this.showProfile(profile._id)}>Button</button>
                 ))}
+                {/* <SingleProfileCard showProfile={this.showProfile} showList={this.showList} showCard={this.showCard} /> */}
+                
             </div>
-        )
-    }
+        );
+      }
 }

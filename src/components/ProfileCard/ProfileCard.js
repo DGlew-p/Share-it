@@ -1,6 +1,7 @@
 import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-export default function ProfileCard(props) {
+export default function ProfileCard(props, showProfile) {
 	return (
 		<div>
 			<h1>{props.name}</h1>
@@ -15,6 +16,10 @@ export default function ProfileCard(props) {
 		 
           </button>
 		  </div>
+
+			<Link to={`/single-profile/${props}`}>
+				<button showProfile={() => showProfile({ ...props })}>Push Me</button>
+			</Link>
 		</div>
 	);
 }

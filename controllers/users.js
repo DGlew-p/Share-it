@@ -10,6 +10,7 @@ module.exports = {
 	update,
 	index,
 	delete:profileDelete,
+	show,
 };
 
 async function create(req, res) {
@@ -76,3 +77,12 @@ async function profileDelete(req, res) {
 	  res.status(200).json("deleted");
 	});
   }
+async function show(req, res) {
+	try {
+		const profile = await User.findById(req.params.id);
+		console.log(profile);
+		res.status(200).json(profile);
+	} catch (err) {
+		res.status(400).json(err);
+	}
+}
