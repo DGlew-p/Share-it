@@ -9,6 +9,7 @@ module.exports = {
 	login,
 	update,
 	index,
+	delete:profileDelete,
 };
 
 async function create(req, res) {
@@ -68,3 +69,10 @@ async function index(req, res) {
 		res.status(400).json(err);
 	}
 }
+
+async function profileDelete(req, res) {
+	await User.findByIdAndDelete(req.body.id, function (err) {
+	  if (err) return res.status(400).json(err);
+	  res.status(200).json("deleted");
+	});
+  }
