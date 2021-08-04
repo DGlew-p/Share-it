@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
 import ProjectPage from './pages/ProjectPage/ProjectPage';
+import ProjectForm from './components/ProjectForm/ProjectForm';
 import ProfileFormPage from './pages/ProfileFormPage/ProfileFormPage';
 import ProfilesPage from './pages/ProfilesPage/ProfilesPage';
 import SingleProfilePage from './pages/SingleProfilePage/SingleProfilePage';
@@ -47,7 +48,12 @@ export default class App extends Component {
 								render={() => <ProjectPage user={this.state.user} />}
 							/>
 							<Route
-								path="/profile"
+								path="/new-project"
+								render={() => <ProjectForm user={this.state.user} />}
+							/>
+
+							<Route
+								path="/new-profile"
 								render={() => <ProfileFormPage user={this.state.user} />}
 							/>
 							<Route
