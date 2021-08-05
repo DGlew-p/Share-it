@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
-
+import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
 import NavigationBarRender from "../../components/NavigationBarRender";
 // import Button from '@material-ui/core';
 // import Card from '@material-ui/core/Card';
@@ -50,14 +50,43 @@ import NavigationBarRender from "../../components/NavigationBarRender";
 
 export default class ProjectPage extends React.Component {
   state = {
-    projects: [],
+    
+    projects:[],
+    showMine:true,
+    showDetail:false,
+
+    
   };
+
+  // handleRoomClick = () => {
+  //   this.setState({
+  //     showDetail:false,
+  //   })
+  //   }
+
+    toggleDetailShow = ()=> {
+      let toggle = this.state.showDetail 
+      toggle = this.state.showDetail  ? false : true;
+      this.setState ({ showDetail: toggle })
+   
+     }
+
+
+    
+  handleDetailClose=()=>{
+        this.setState({
+          showDetail:false,
+          projectDetails:[]
+         })
+        }
+
+
 
   async componentDidMount() {
     try {
       let fetchItemsResponse = await fetch("/api/projects");
       let projects = await fetchItemsResponse.json();
-      this.setState({ projects: projects });
+      this.setState({ projects: projects , user:this.props.user});
     } catch (err) {
       console.error("ERROR:", err);
     }
@@ -79,6 +108,13 @@ export default class ProjectPage extends React.Component {
     
   }
 
+  toggleShowMine = ()=> {
+   let toggle = this.state.showMine 
+   toggle = this.state.showMine  ? false : true;
+   this.setState ({ showMine: toggle })
+
+  }
+
   async deleteProject(id) {
     let profileRes = await fetch("./api/projects/", {
       method: "DELETE",
@@ -90,16 +126,58 @@ export default class ProjectPage extends React.Component {
     let profile = await profileRes.json();
     return profile;
   }
+  
 
   render() {
     return (
       <div>
         <NavigationBarRender />
+
+
+      {this.state.showMine === false ? 
+      <section>
         <h1>All Projects</h1>
+      <button onClick={() => this.toggleShowMine()}>Show my Projects</button>
+
+      </section> 
+      : 
+      <section>
+      <h1>Your Projects</h1>
+      <button onClick={() => this.toggleShowMine()}>Show all Projects</button>
+      </section> }
+
+       {this.state.showMine === false ?         
+        <section>
         {this.state.projects.map((project) => (
-          <ProjectItem handleProjectDelete={this.handleProjectDelete} {...project} />
-        ))}
+          <ProjectItem toggleDetailShow={this.toggleDetailShow}
+                        handleDetailClose={this.handleDetailClose} 
+                        handleProjectDelete={this.handleProjectDelete} 
+                        user={this.props.user}
+                        showMine={this.state.showMine}
+                        showDetail={this.state.showDetail}
+                        projectDetails={this.state.projectDetails}
+                        {...project} />
+          ))}
+        </section>
+         : 
+        <section>
+          {this.state.projects.filter(project => project.object_id_reference === this.props.user._id).map(project => (
+          <ProjectItem 
+          // handleRoomClick={this.handleRoomClick} 
+                        toggleDetailShow={this.toggleDetailShow}
+                        handleDetailClose={this.handleDetailClose} 
+                        handleProjectDelete={this.handleProjectDelete} 
+                        user={this.props.user}
+                        showMine={this.state.showMine}
+                        showDetail={this.state.showDetail}
+                        // projectDetails={this.state.projectDetails}
+                        {...project} />
+            ))}
+        </section>}
+
+   
       </div>
     );
   }
 }
+
