@@ -1,73 +1,28 @@
-import React from "react";
-import { Component } from "react";
-import ProjectItem from "../../components/ProjectItem/ProjectItem";
-import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
-import NavigationBarRender from "../../components/NavigationBarRender";
-// import Button from '@material-ui/core';
-// import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardContent';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import Grid from '@material-ui/core/Grid';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
-// import { withStyles } from '@material-ui/core/styles';
-// import Container from '@material-ui/core/Container';
-// import Link from '@material-ui/core/Link';
 
-// const useStyles = withStyles(theme => ({
+import React from 'react';
+import ProjectItem from '../../components/ProjectItem/ProjectItem';
+import '../../css/bulma.css';
+import { ProjectCard, MainTitle, ToggleBox, ToggleButtonOne, ToggleButtonTwo } from './ProjectPage.styles';
 
-//     heroContent: {
-//         backgroundColor: theme.palette.background.paper,
-//         padding: theme.spacing(8, 0, 6),
-//       },
-//       heroButtons: {
-//         marginTop: theme.spacing(4),
-//       },
-//       cardGrid: {
-//         paddingTop: theme.spacing(8),
-//         paddingBottom: theme.spacing(8),
-//       },
-//       card: {
-//         height: '100%',
-//         display: 'flex',
-//         flexDirection: 'column',
-//       },
-//       cardMedia: {
-//         paddingTop: '56.25%', // 16:9
-//       },
-//       cardContent: {
-//         flexGrow: 1,
-//       },
-//       footer: {
-//         backgroundColor: theme.palette.background.paper,
-//         padding: theme.spacing(6),
-//       },
-// }));
+import NavBar from '../../components/NavBar/NavBar';
 
-// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 
 export default class ProjectPage extends React.Component {
   state = {
     
     projects:[],
-    showMine:true,
+    showMine:false,
     showDetail:false,
-
+    projectDetails:[]
     
   };
 
-  // handleRoomClick = () => {
-  //   this.setState({
-  //     showDetail:false,
-  //   })
-  //   }
-
-    toggleDetailShow = ()=> {
+ 
+    toggleDetailShow = (details)=> {
       let toggle = this.state.showDetail 
       toggle = this.state.showDetail  ? false : true;
-      this.setState ({ showDetail: toggle })
+      this.setState ({ showDetail: toggle , projectDetails:details})
    
      }
 
@@ -76,7 +31,7 @@ export default class ProjectPage extends React.Component {
   handleDetailClose=()=>{
         this.setState({
           showDetail:false,
-          projectDetails:[]
+          // projectDetails:[]
          })
         }
 
@@ -126,58 +81,62 @@ export default class ProjectPage extends React.Component {
     let profile = await profileRes.json();
     return profile;
   }
-  
 
-  render() {
-    return (
-      <div>
-        <NavigationBarRender />
+	render() {
+		return (
+			<React.Fragment>
+				<NavBar userLogout={this.props.userLogout} />
+				<div class="tile is-parent">
+        			<div class="tile">
+				<ProjectCard>
+                {this.state.showMine === false ? 
+      <ToggleBox>
+        <MainTitle>All Projects</MainTitle>
+      <ToggleButtonOne className="button" onClick={() => this.toggleShowMine()}>Show My Projects</ToggleButtonOne>
 
-
-      {this.state.showMine === false ? 
-      <section>
-        <h1>All Projects</h1>
-      <button onClick={() => this.toggleShowMine()}>Show my Projects</button>
-
-      </section> 
+      </ToggleBox> 
       : 
-      <section>
-      <h1>Your Projects</h1>
-      <button onClick={() => this.toggleShowMine()}>Show all Projects</button>
-      </section> }
-
+      <ToggleBox>
+      <MainTitle>Your Projects</MainTitle>
+      <ToggleButtonTwo className="button" onClick={() => this.toggleShowMine()}>Show All Projects</ToggleButtonTwo>
+      </ToggleBox>}
+      
        {this.state.showMine === false ?         
         <section>
-        {this.state.projects.map((project) => (
-          <ProjectItem toggleDetailShow={this.toggleDetailShow}
-                        handleDetailClose={this.handleDetailClose} 
-                        handleProjectDelete={this.handleProjectDelete} 
-                        user={this.props.user}
-                        showMine={this.state.showMine}
-                        showDetail={this.state.showDetail}
-                        projectDetails={this.state.projectDetails}
-                        {...project} />
+        {this.state.projects.map((project, idx) => (
+          <ProjectItem  key={idx}
+     
+          toggleDetailShow={this.toggleDetailShow}
+          handleDetailClose={this.handleDetailClose} 
+          handleProjectDelete={this.handleProjectDelete} 
+          user={this.props.user}
+          showMine={this.state.showMine}
+          showDetail={this.state.showDetail}
+          projectDetails={this.state.projectDetails}
+          {...project} />
           ))}
         </section>
          : 
         <section>
-          {this.state.projects.filter(project => project.object_id_reference === this.props.user._id).map(project => (
-          <ProjectItem 
-          // handleRoomClick={this.handleRoomClick} 
-                        toggleDetailShow={this.toggleDetailShow}
-                        handleDetailClose={this.handleDetailClose} 
-                        handleProjectDelete={this.handleProjectDelete} 
-                        user={this.props.user}
-                        showMine={this.state.showMine}
-                        showDetail={this.state.showDetail}
-                        // projectDetails={this.state.projectDetails}
-                        {...project} />
+          {this.state.projects.filter(project => project.object_id_reference === this.props.user._id).map((project ,idx) => (
+         <ProjectItem key={idx}
+    
+         toggleDetailShow={this.toggleDetailShow}
+         handleDetailClose={this.handleDetailClose} 
+         handleProjectDelete={this.handleProjectDelete} 
+         user={this.props.user}
+         showMine={this.state.showMine}
+         showDetail={this.state.showDetail}
+         projectDetails={this.state.projectDetails}
+         {...project} />
             ))}
         </section>}
 
-   
-      </div>
-    );
-  }
+							</ProjectCard>
+						</div>
+				</div>
+			</React.Fragment>
+		);
+	}
 }
 
