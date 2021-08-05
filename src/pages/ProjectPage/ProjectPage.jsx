@@ -3,7 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import '../../css/bulma.css';
-import { ProjectCard, MainTitle, } from './ProjectPage.styles';
+import { ProjectCard, MainTitle, ToggleBox, ToggleButton } from './ProjectPage.styles';
 
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -84,20 +84,19 @@ export default class ProjectPage extends Component {
 		return (
 			<React.Fragment>
 				<NavBar userLogout={this.props.userLogout} />
-				<MainTitle>All Projects</MainTitle>
 				<div class="tile is-parent">
         			<div class="tile">
 							<ProjectCard>
                 {this.state.showMine === false ? 
-      <section>
-        <h1>All Projects</h1>
-      <button onClick={() => this.toggleShowMine()}>Show my Projects</button>
+      <ToggleBox>
+        <MainTitle>All Projects</MainTitle>
+      <ToggleButton className="button" onClick={() => this.toggleShowMine()}>Show My Projects</ToggleButton>
 
-      </section> 
+      </ToggleBox> 
       : 
       <section>
-      <h1>Your Projects</h1>
-      <button onClick={() => this.toggleShowMine()}>Show all Projects</button>
+      <MainTitle>Your Projects</MainTitle>
+      <button className="button" onClick={() => this.toggleShowMine()}>Show All Projects</button>
       </section> }
 
        {this.state.showMine === false ?         
