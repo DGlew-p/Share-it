@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Wrapper, Input } from './Login.styles';
 
 export default class SignUpForm extends Component {
@@ -40,7 +40,7 @@ export default class SignUpForm extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <div onSubmit={this.handleSubmit}>
           <form autoComplete="on" >
             <Wrapper>
@@ -53,7 +53,7 @@ export default class SignUpForm extends Component {
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
-      </>
+      </React.Fragment>
     );
   }
 }
