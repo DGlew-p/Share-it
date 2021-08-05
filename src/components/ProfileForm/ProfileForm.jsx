@@ -1,6 +1,8 @@
-import { Component } from "react";
-import { Wrapper, Input } from "../LoginForm/Login.styles";
+import React, { Component } from "react";
+import { Wrapper, FormLabel } from "../../components/ProjectForm/ProjectForm.styles";
 import { Redirect } from "react-router-dom";
+import { MainTitle } from '../../pages/ProjectPage/ProjectPage.styles';
+import NavBar from '../NavBar/NavBar';
 // import NavigationBarRender from "../NavigationBarRender";
 
 export default class ProfileForm extends Component {
@@ -51,43 +53,72 @@ export default class ProfileForm extends Component {
       return <Redirect to="/projects" />;
     }
     return (
-      <>
-        {/* <NavigationBarRender /> */}
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <Wrapper>
-              <label>Location</label>
-              <Input
-                type="location"
-                name="location"
-                value={this.state.location}
-                onChange={this.handleChange}
-                required
-              />
-              <label>Bio</label>
-              <Input
-                type="bio"
-                name="bio"
-                value={this.state.bio}
-                onChange={this.handleChange}
-                required
-              />
-              <label>Skills</label>
-              <Input
-                type="skills"
-                name="skills"
-                value={this.state.skills}
-                onChange={this.handleChange}
-                required
-              />
-              <label>Image</label>
-              {/* <Input type="image" name="image" value={this.state.image} onChange={this.handleChange} required /> */}
-              <button type="submit">REGISTER PROFILE</button>
-            </Wrapper>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
-      </>
+      <React.Fragment>
+        <NavBar />
+        <MainTitle>Fill Out Your Profile</MainTitle>
+        <Wrapper autoComplete="on" onSubmit={this.handleSubmit} enctype="multipart/form-data">
+				<div className="field">
+					<FormLabel className="label">Location</FormLabel>
+					<div className="control">
+						<input className="input" name="location" value={this.state.location} onChange={this.handleChange} required/>
+					</div>
+				</div>
+				<div className="field">
+					<FormLabel className="label">Bio</FormLabel>
+					<div className="control">
+						<textarea className="textarea" name="bio" type="text-area" value={this.state.bio} onChange={this.handleChange} required />
+					</div>
+				</div>
+				<div className="field">
+					<FormLabel className="label">Skills</FormLabel>
+					<div className="control">
+						<textarea className="textarea" name="project_description" type="text-area" value={this.state.skills} onChange={this.handleChange}></textarea>
+					</div>
+				</div>
+				<div className="field">
+					<div className="control">
+						<button type="submit" className="button is-rounded is-warning">Submit</button>
+					</div>
+				</div>
+        <p>&nbsp;{this.state.error}</p>
+				</Wrapper>
+       
+      </React.Fragment>
     );
   }
 }
+
+{/* <div className="form-container">
+<form autoComplete="off" onSubmit={this.handleSubmit}>
+  <Wrapper>
+    <label>Location</label>
+    <input
+      type="location"
+      name="location"
+      value={this.state.location}
+      onChange={this.handleChange}
+      required
+    />
+    <label>Bio</label>
+    <input
+      type="bio"
+      name="bio"
+      value={this.state.bio}
+      onChange={this.handleChange}
+      required
+    />
+    <label>Skills</label>
+    <input
+      type="skills"
+      name="skills"
+      value={this.state.skills}
+      onChange={this.handleChange}
+      required
+    />
+    <label>Image</label>
+    {/* <Input type="image" name="image" value={this.state.image} onChange={this.handleChange} required /> */}
+//     <button type="submit">REGISTER PROFILE</button>
+//   </Wrapper>
+// </form>
+// </div>
+// <p className="error-message">&nbsp;{this.state.error}</p> */}

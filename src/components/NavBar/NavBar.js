@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { Nav, Navbar } from 'react-bootstrap';
-// import { Styles } from './NavigationBar';
+import { NavBarFull } from './NavBar.styles';
 import '../../css/bulma.css';
 import ShareItLogo from '../../images/share_it.svg';
 import { LogoImg } from '../../pages/AuthPage/AuthPage.styles';
@@ -9,7 +8,7 @@ import { LogoImg } from '../../pages/AuthPage/AuthPage.styles';
 export default function NavBar(props) {
 	return (
 		<React.Fragment>
-			<nav className="navbar has-shadow is-white">
+			<NavBarFull className="navbar has-shadow">
 				<div className="navbar-brand">
 					<LogoImg src={ShareItLogo} alt="" className="py-2 px-2" />
 					<div className="navbar-burger">
@@ -37,7 +36,7 @@ export default function NavBar(props) {
 						</Link>
 					</div>
 				</div>
-			</nav>
+			</NavBarFull>
 		</React.Fragment>
 	);
 }

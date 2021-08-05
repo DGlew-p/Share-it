@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Wrapper, FormLabel } from './ProjectForm.styles';
 // import NavigationBarRender from '../NavigationBarRender';
+import { MainTitle } from '../../pages/ProjectPage/ProjectPage.styles'
 import '../../css/bulma.css';
 import NavBar from '../NavBar/NavBar';
 export default class ProjectForm extends Component {
@@ -51,7 +52,8 @@ export default class ProjectForm extends Component {
 		return (
 			<React.Fragment>
 				<NavBar />
-				<Wrapper>
+				<MainTitle>Fill Out Your Project</MainTitle>
+				<Wrapper autoComplete="on" onSubmit={this.handleSubmit} enctype="multipart/form-data">
 				<div className="field">
 					<FormLabel className="label">Name of Project</FormLabel>
 					<div className="control">
@@ -72,7 +74,7 @@ export default class ProjectForm extends Component {
 				</div>
 				<div className="field">
 					<div className="control">
-						<button className="button is-rounded is-warning">Submit</button>
+						<button type="submit" className="button is-rounded is-warning">Submit</button>
 					</div>
 				</div>
 				</Wrapper>
@@ -80,37 +82,3 @@ export default class ProjectForm extends Component {
 		);
 	}
 }
-
-
-{/* <div className="field"
-						autoComplete="on"
-						onSubmit={this.handleSubmit}
-						enctype="multipart/form-data"
-					>
-						<div className="label"></div>
-						<Wrapper className="field">
-							<label>Title:</label>
-							<input
-								name="title"
-								value={this.state.title}
-								onChange={this.handleChange}
-							/>
-
-							<label>Technologies:</label>
-							<input
-								name="tech_stack"
-								type="text-area"
-								value={this.state.tech_stack}
-								onChange={this.handleChange}
-							/>
-
-							<label>Project Description:</label>
-							<input
-								name="project_description"
-								type="text-area"
-								value={this.state.project_description}
-								onChange={this.handleChange}
-							/>
-							<button type="submit">Create</button>
-						</Wrapper>
-					</div> */}
