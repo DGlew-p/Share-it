@@ -4,7 +4,17 @@ import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
 export default function ProjectItem(props) {
 
   return (
-    <div>
+    <div style={{
+      border: '1px solid black', 
+ }}>
+
+{props.showMine === true?  
+      <section>
+      <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>
+      </section>
+     :
+ <div></div>
+    }
    
         <h1>{props.title}</h1>
         <div>{props.tech_stack}</div>
@@ -12,13 +22,7 @@ export default function ProjectItem(props) {
         <div>last updated:{(props.updatedAt)}</div>
         <button id="b1" data-popup-id="p1" className="btn-room-name" onClick={()=> props.toggleDetailShow()}>more details</button>
   
-    {props.showMine === true?  
-      <section>
-      <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>
-      </section>
-     :
-    <section></section>
-    }
+  
    <ProjectDetail  
                           toggleDetailShow={props.toggleDetailShow}
                           showDetail={props.showDetail} 
