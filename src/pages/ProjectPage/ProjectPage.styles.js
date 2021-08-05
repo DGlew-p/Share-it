@@ -16,8 +16,19 @@ export const MainTitle = styled.h1`
 	padding: 2rem;
 `;
 
+export const ToggleBox = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 2rem;
+`;
+
 export const ProjectButton = styled.button`
 	margin-right: 1rem;
+`;
+
+export const ToggleButton = styled.button`
+	width: 30%;
 `;
 
 export const Grid = styled.div`
