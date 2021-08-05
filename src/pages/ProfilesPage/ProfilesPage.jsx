@@ -80,7 +80,7 @@ export default class AllProfiles extends Component {
         return (
             <React.Fragment>
                 {/* <NavigationBarRender/> */}
-                <NavBar userLogout={this.props.userLogout} />
+                <NavBar />
                 <MainTitle>All Profiles</MainTitle>
                 <Followers>
                     <Container>

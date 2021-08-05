@@ -85,7 +85,7 @@ export default class ProjectPage extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<NavBar userLogout={this.props.userLogout} />
+				<NavBar />
 				<div class="tile is-parent">
         			<div class="tile">
 				<ProjectCard>

@@ -35,3 +35,9 @@ export const HeroImg = styled.div`
 	background-position: center;
 	background-repeat: no-repeat;
 `;
+
+export const SlugContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;

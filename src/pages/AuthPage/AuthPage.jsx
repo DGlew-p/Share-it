@@ -10,28 +10,33 @@ export default class AuthPage extends React.Component {
   
     render() {
       return (
-    //  <StylesProvider injectFirst>
         <React.Fragment>
-        <Wrapper>
-            <HeroImg />
-            <div>
-            <Content>
-                <LogoImg src={ShareItLogo} alt="share-it-logo" />
-                <h3
-                    onClick={() => this.setState({ showLogin: !this.state.showLogin })}
-                >
-                    {this.state.showLogin ? (<LogLink >Sign Up</LogLink>) : <LogLink >Log In</LogLink>}
-                </h3>
-            </Content>
-            <EmailWrap>
-                {this.state.showLogin ? (
-                    <LoginForm setUserInState={this.props.setUserInState} />
-                ) : (
-                    <SignUpForm setUserInState={this.props.setUserInState} />
-                )}
-            </EmailWrap>
-            </div>
-        </Wrapper>
+            <Wrapper>
+                <HeroImg />
+                <div>
+                    
+                    <Content>
+                        <LogoImg src={ShareItLogo} alt="share-it-logo" />
+                        
+                        <h3
+                            onClick={() => this.setState({ showLogin: !this.state.showLogin })}
+                        >
+                            {this.state.showLogin ? (<LogLink >Sign Up</LogLink>) : <LogLink >Log In</LogLink>}
+                        </h3>
+                        
+                    </Content>
+                    <div>
+                        <h1>Making Your Projects is Hard, Sharing Them Has Never Been Easier!</h1>
+                    </div>
+                    <EmailWrap>
+                        {this.state.showLogin ? (
+                            <LoginForm setUserInState={this.props.setUserInState} />
+                        ) : (
+                            <SignUpForm setUserInState={this.props.setUserInState} />
+                        )}
+                    </EmailWrap>
+                </div>
+            </Wrapper>
         </React.Fragment>
         
       );

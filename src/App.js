@@ -6,8 +6,7 @@ import ProjectPage from './pages/ProjectPage/ProjectPage';
 import ProjectForm from './components/ProjectForm/ProjectForm';
 import ProfileFormPage from './pages/ProfileFormPage/ProfileFormPage';
 import ProfilesPage from './pages/ProfilesPage/ProfilesPage';
-import SingleProfilePage from './pages/SingleProfilePage/SingleProfilePage';
-// import Logout from './components/UserLogOut/UserLogOut';
+import Logout from './components/UserLogOut/UserLogOut';
 
 //styles
 
@@ -36,7 +35,7 @@ export default class App extends Component {
 		}
 	}
 
-	userLogout = () => {
+	userlogout = () => {
 		localStorage.removeItem('token');
 		this.setState({ user: null });
 	};
@@ -48,16 +47,10 @@ export default class App extends Component {
 
 				{this.state.user ? (
 					<div>
-						{/* <Logout userLogout={this.userLogout} /> */}
 						<Switch>
 							<Route
 								path="/all-projects"
-								render={() => (
-									<ProjectPage
-										user={this.state.user}
-										userLogout={this.userLogout}
-									/>
-								)}
+								render={() => <ProjectPage user={this.state.user} />}
 							/>
 							<Route
 								path="/new-project"
@@ -72,10 +65,6 @@ export default class App extends Component {
 								path="/all-profiles"
 								render={() => <ProfilesPage user={this.state.user} />}
 							/>
-							<Route
-								path="/single-profile/:id"
-								render={(props) => <SingleProfilePage {...props} />}
-							/>
 							<Redirect to="/all-projects" />
 						</Switch>
 					</div>
@@ -84,6 +73,7 @@ export default class App extends Component {
 						<AuthPage setUserInState={this.setUserInState} />
 					</Route>
 				)}
+				<Logout userLogout={this.userlogout} />
 			</React.Fragment>
 		);
 	}

@@ -5,7 +5,7 @@ class UserLogOut extends React.Component {
   render() {
   return (
       <>
-        <h3 onClick={this.props.userLogout}>Logout</h3>
+        <button onClick={() => this.props.userLogout()}>Logout</button>
       </>
   );
   }
