@@ -12,10 +12,7 @@ export default function ProjectItem(props) {
               <p className="title">{props.title}</p>
               <p className="subtitle">{props.tech_stack}</p>
               <p className="subtitle">{props.project_description}</p>
-              <button className="button is-link is-warning is-rounded" onClick={() => props.handleProjectDelete(props._id)}>
-              Delete this Project
-              </button>
-              <button id="b1" data-popup-id="p1" onClick={()=> props.toggleDetailShow()}>more details</button>
+              <button id="b1" data-popup-id="p1" onClick={()=> props.toggleDetailShow(props)}>more details</button>
             {props.showMine === true?  
             <section>
             <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>
@@ -24,17 +21,21 @@ export default function ProjectItem(props) {
 
  <div></div>
     }
-   <ProjectDetail
-              toggleDetailShow={props.toggleDetailShow}
-              showDetail={props.showDetail} 
-              handleDetailClose={props.handleDetailClose} 
-              projectDetails={props.projectDetails}
-              user={props.user}
-              showMine={props.showMine}
-              project_description={props.project_description} 
-              tech_stack={props.tech_stack} 
-              title={props.title} 
-              updatedAt={props.updatedAt}/>
+  
+  <ProjectDetail  
+                          toggleDetailShow={props.toggleDetailShow}
+                          showDetail={props.showDetail} 
+                          handleDetailClose={props.handleDetailClose} 
+                          projectDetails={props.projectDetails}
+                          user={props.user}
+                          showMine={props.showMine}
+                          showDetail={props.showDetail} 
+                          project_description={props.project_description} 
+                          tech_stack={props.tech_stack} 
+                          title={props.title} 
+                          updatedAt={props.updatedAt} 
+
+                        />
           </InnerCard>
         </div>
     </React.Fragment>

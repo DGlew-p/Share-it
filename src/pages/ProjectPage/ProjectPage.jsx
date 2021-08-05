@@ -9,30 +9,33 @@ import NavBar from '../../components/NavBar/NavBar';
 
 
 
-export default class ProjectPage extends Component {
-	  state = {
+export default class ProjectPage extends React.Component {
+  state = {
     
     projects:[],
     showMine:false,
     showDetail:false,
-    projectDetail:[]
+    projectDetails:[]
     
   };
 
-
- toggleDetailShow = ()=> {
+ 
+    toggleDetailShow = (details)=> {
       let toggle = this.state.showDetail 
       toggle = this.state.showDetail  ? false : true;
-      this.setState ({ showDetail: toggle  })
+      this.setState ({ showDetail: toggle , projectDetails:details})
    
      }
- 
-   handleDetailClose=()=>{
+
+
+    
+  handleDetailClose=()=>{
         this.setState({
           showDetail:false,
-          projectDetails:[]
+          // projectDetails:[]
          })
         }
+
 
 
   async componentDidMount() {
@@ -45,7 +48,7 @@ export default class ProjectPage extends Component {
     }
   }
 
-	async getProjects() {
+  async getProjects() {
     try {
       let fetchItemsResponse = await fetch("/api/projects");
       let projects = await fetchItemsResponse.json();
@@ -55,13 +58,13 @@ export default class ProjectPage extends Component {
     }
   }
 
-	handleProjectDelete = async (id)=>{
+  handleProjectDelete = async (id)=>{
     await this.deleteProject(id)
     this.getProjects()
     
   }
-  
-   toggleShowMine = ()=> {
+
+  toggleShowMine = ()=> {
    let toggle = this.state.showMine 
    toggle = this.state.showMine  ? false : true;
    this.setState ({ showMine: toggle })
@@ -104,30 +107,30 @@ export default class ProjectPage extends Component {
         <section>
         {this.state.projects.map((project, idx) => (
           <ProjectItem  key={idx}
-                        toggleDetailShow={this.toggleDetailShow}
-                        handleDetailClose={this.handleDetailClose} 
-                        handleProjectDelete={this.handleProjectDelete} 
-                        user={this.props.user}
-                        showMine={this.state.showMine}
-                        showDetail={this.state.showDetail}
-                        closeButton={this.state.closeButton}
-                        // projectDetails={this.state.projectDetails}
-                        {...project} />
+     
+          toggleDetailShow={this.toggleDetailShow}
+          handleDetailClose={this.handleDetailClose} 
+          handleProjectDelete={this.handleProjectDelete} 
+          user={this.props.user}
+          showMine={this.state.showMine}
+          showDetail={this.state.showDetail}
+          projectDetails={this.state.projectDetails}
+          {...project} />
           ))}
         </section>
          : 
         <section>
           {this.state.projects.filter(project => project.object_id_reference === this.props.user._id).map((project ,idx) => (
-          <ProjectItem key={idx}
-          // handleRoomClick={this.handleRoomClick} 
-                        toggleDetailShow={this.toggleDetailShow}
-                        handleDetailClose={this.handleDetailClose} 
-                        handleProjectDelete={this.handleProjectDelete} 
-                        user={this.props.user}
-                        showMine={this.state.showMine}
-                        showDetail={this.state.showDetail}
-                        // projectDetails={this.state.projectDetails}
-                        {...project} />
+         <ProjectItem key={idx}
+    
+         toggleDetailShow={this.toggleDetailShow}
+         handleDetailClose={this.handleDetailClose} 
+         handleProjectDelete={this.handleProjectDelete} 
+         user={this.props.user}
+         showMine={this.state.showMine}
+         showDetail={this.state.showDetail}
+         projectDetails={this.state.projectDetails}
+         {...project} />
             ))}
         </section>}
 
