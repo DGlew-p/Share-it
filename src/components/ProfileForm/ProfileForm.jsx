@@ -72,7 +72,7 @@ export default class ProfileForm extends Component {
 				<div className="field">
 					<FormLabel className="label">Skills</FormLabel>
 					<div className="control">
-						<textarea className="textarea" name="project_description" type="text-area" value={this.state.skills} onChange={this.handleChange}></textarea>
+						<textarea className="textarea" name="skills" type="text-area" value={this.state.skills} onChange={this.handleChange}></textarea>
 					</div>
 				</div>
 				<div className="field">

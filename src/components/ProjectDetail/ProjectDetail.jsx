@@ -19,9 +19,9 @@ export default function ProjectDetail(props) {
 					<h3>Last Updated</h3>
 					<div>{props.projectDetails.updatedAt}</div>
 					<h3>Creator</h3>
-					<div>{props.user.name}</div>
+					{/* <div>{props.projectDetails.user.name}</div> */}
 					<h3>Contact</h3>
-					<div>{props.user.email}</div>
+					{/* <div>{props.projectDetails.user.email}</div> */}
 				</section>																
 			</div>		
 		</div>

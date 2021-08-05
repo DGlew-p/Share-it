@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Wrapper, FormLabel } from './ProjectForm.styles';
+import { Redirect } from "react-router-dom";
 import { MainTitle } from '../../pages/ProjectPage/ProjectPage.styles';
 import '../../css/bulma.css';
 import NavBar from '../NavBar/NavBar';
@@ -9,6 +10,7 @@ export default class ProjectForm extends Component {
 		title: '',
 		tech_stack: '',
 		project_description: '',
+		redirect: false,
 		// image:{url:"1",filename:"2"}
 	};
 
@@ -18,6 +20,7 @@ export default class ProjectForm extends Component {
 
 	handleSubmit = async (evt) => {
 		evt.preventDefault();
+		this.setState({ redirect: true });
 
 		try {
 			let jwt = localStorage.getItem('token');
@@ -49,6 +52,9 @@ export default class ProjectForm extends Component {
 	};
 
 	render() {
+		if (this.state.redirect) {
+			return <Redirect to="/projects" />;
+		  }
 		return (
 			<React.Fragment>
 				<NavBar />

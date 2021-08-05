@@ -32,7 +32,6 @@ export default class ProjectPage extends React.Component {
   handleDetailClose=()=>{
         this.setState({
           showDetail:false,
-          // projectDetails:[]
          })
         }
 
