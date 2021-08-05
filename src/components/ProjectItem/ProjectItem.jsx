@@ -1,5 +1,5 @@
 import "./ProjectItem.css";
-import { Image } from "cloudinary-react";
+// import { Image } from "cloudinary-react";
 
 export default function ProjectItem(props) {
   return (

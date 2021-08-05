@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
-import NavigationBarRender from "../../components/NavigationBarRender";
-import SingleProfileCard from '../../components/SingleProfileCard/SingleProfileCard'
+// import NavigationBarRender from "../../components/NavigationBarRender";
+// import SingleProfileCard from '../../components/SingleProfileCard/SingleProfileCard'
 
 export default class AllProfiles extends Component {
 
@@ -77,7 +77,7 @@ export default class AllProfiles extends Component {
     render(){
         return (
             <div>
-                <NavigationBarRender/>
+                {/* <NavigationBarRender/> */}
                 <h1>All Profiles</h1>
             
                 {this.state.profilesHistory.map((profile) => (

@@ -1,7 +1,7 @@
 
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import { Wrapper, Input } from './ProjectForm.styles';  
-import NavigationBarRender from '../NavigationBarRender';
+// import NavigationBarRender from '../NavigationBarRender';
 
 import React from 'react'
 
@@ -59,7 +59,7 @@ export default class ProjectForm extends Component {
   render() {
     return (
       <>
-      <NavigationBarRender />
+      {/* <NavigationBarRender /> */}
 
     <div className="form-container">
    

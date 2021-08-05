@@ -1,33 +1,70 @@
-import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
-import { Styles } from './NavigationBar';
+import React, { useState } from 'react';
+// import { Nav, Navbar } from 'react-bootstrap';
+import {
+	Nav,
+	NavBarContainer,
+	NavLogo,
+	NavIcon,
+	MobileIcon,
+} from './NavigationBar';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { IconContext } from 'react-icons/lib';
 
-export default function NavigationBar() {
+const NavigationBarRender = () => {
+	// state = {
+	// 	click: false,
+	// };
+
+	// handleClickOn = () => {
+	// 	this.setState({ click: true });
+	// };
+
+	// handleClickOff = () => {
+	// 	this.setState({ click: false });
+	// };
+
+	// render() {
+	// const isClicked = this.state.click;
+	// let button;
+	// if (isClicked) {
+	// 	button = <ClickedOn onClick={this.handleClickOn} />;
+	// } else {
+	// 	button = <ClickedOff onClick={this.handleClickOff} />;
+	// }
+
+	const [click, setClick] = useState(false);
+	const handleClick = () => setClick(!click);
+
 	return (
 		<React.Fragment>
-			<Styles>
-				<Navbar expand="lg">
-					<Navbar.Brand href="#">Share It</Navbar.Brand>
-					{/* <Navbar.Toggle aria-controls="basic-navbar-nav">
-						<Navbar.Collapse id="basic-navbar-nav"> */}
-					<Nav className="ml-auto">
-					<Nav.Item>
-							<Nav.Link href="/all-projects">All Projects</Nav.Link>
-						</Nav.Item>
-						<Nav.Item>
-							<Nav.Link href="/new-project">Create Project</Nav.Link>
-						</Nav.Item>
-						<Nav.Item>
-							<Nav.Link href="/new-profile">Create Profile</Nav.Link>
-						</Nav.Item>
-						<Nav.Item>
-							<Nav.Link href="/all-profiles">All Profiles</Nav.Link>
-						</Nav.Item>
-					</Nav>
-					{/* </Navbar.Collapse>
-					</Navbar.Toggle> */}
-				</Navbar>
-			</Styles>
+			<IconContext.Provider value="#fff">
+				<Nav>
+					<NavBarContainer>
+						<NavLogo to="/projects">
+							<NavIcon />
+							SHARE IT
+							<MobileIcon onChange={handleClick}>
+								{click ? <FaTimes /> : <FaBars />}
+							</MobileIcon>
+							{/* <NavMenu onClick={handleClick}>
+								<NavItem>
+									<NavLinks to="/projects">All Projects</NavLinks>
+								</NavItem>
+							</NavMenu> */}
+						</NavLogo>
+					</NavBarContainer>
+				</Nav>
+			</IconContext.Provider>
 		</React.Fragment>
 	);
-}
+	// }
+};
+
+// function ClickedOn(props) {
+// 	return <FaBars onClick={props.onClick} />;
+// }
+
+// function ClickedOff(props) {
+// 	return <NavIcon onClick={props.onClick} />;
+// }
+export default NavigationBarRender;

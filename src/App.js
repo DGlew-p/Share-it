@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // Add the Route named import
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from './pages/AuthPage/AuthPage';
@@ -11,33 +11,33 @@ import Logout from './components/UserLogOut/UserLogOut';
 
 //styles
 
-import { GlobalStyle } from "./GlobalStyles";
+import { GlobalStyle } from './GlobalStyles';
 
 export default class App extends Component {
-  state = {
-    user: null,
-  };
-  setUserInState = (incomingUserData) => {
-    this.setState({ user: incomingUserData });
-  };
+	state = {
+		user: null,
+	};
+	setUserInState = (incomingUserData) => {
+		this.setState({ user: incomingUserData });
+	};
 
-  componentDidMount() {
-    let token = localStorage.getItem("token");
-    if (token) {
-      let userDoc = JSON.parse(atob(token.split(".")[1])).user; // decode jwt token
-      this.setState({ user: userDoc });
-    }
-  }
+	componentDidMount() {
+		let token = localStorage.getItem('token');
+		if (token) {
+			let userDoc = JSON.parse(atob(token.split('.')[1])).user; // decode jwt token
+			this.setState({ user: userDoc });
+		}
+	}
 
-  userLogout = () => {
-    localStorage.removeItem("token");
-    this.setState({ user: null });
-  };
+	userLogout = () => {
+		localStorage.removeItem('token');
+		this.setState({ user: null });
+	};
 
-  render() {
-    return (
-      <React.Fragment>
-        <GlobalStyle />
+	render() {
+		return (
+			<React.Fragment>
+				<GlobalStyle />
 
 				{this.state.user ? (
 					<div>

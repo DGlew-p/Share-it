@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Wrapper, Input } from "../LoginForm/Login.styles";
 import { Redirect } from "react-router-dom";
-import NavigationBarRender from "../NavigationBarRender";
+// import NavigationBarRender from "../NavigationBarRender";
 
 export default class ProfileForm extends Component {
   state = {
@@ -52,7 +52,7 @@ export default class ProfileForm extends Component {
     }
     return (
       <>
-        <NavigationBarRender />
+        {/* <NavigationBarRender /> */}
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <Wrapper>

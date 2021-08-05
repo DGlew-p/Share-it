@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     :root {
@@ -16,6 +16,9 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Rubik', sans-serif;
     }
+
+    
+
     body {
         margin: 0;
         padding: 0;
@@ -31,4 +34,19 @@ export const GlobalStyle = createGlobalStyle`
             color: var(--darkGrey);
         }
     }
+`;
+
+export const Container = styled.div`
+	z-index: 1;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1300px;
+	padding-right: 5rem;
+	padding-left: 5rem;
+
+	@media screen and (max-width: 991px) {
+		padding-right: 3rem;
+		padding-left: 3rem;
+	}
 `;
