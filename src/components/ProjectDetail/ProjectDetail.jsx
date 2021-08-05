@@ -7,16 +7,16 @@ export default function ProjectDetail(props) {
 			<div className="modal-background"></div>
 			<div className="modal-card">
 				<header className="modal-card-head">
-					<p className="modal-card-title">{props.title}</p>
-					<button className="delete" aria-label="close" onClick={() => props.toggleDetailShow()}></button>
+					<p className="modal-card-title">{props.projectDetails.title}</p>
+					<button className="delete" aria-label="close" onClick={() => props.handleDetailClose()}></button>
 				</header>
 				<section className="modal-card-body">
 					<h3>Technologies</h3>
-					<div>{props.tech_stack}</div>
+					<div>{props.projectDetails.tech_stack}</div>
 					<h3>Description</h3>
-					<div>{props.project_description}</div>
+					<div>{props.projectDetails.project_description}</div>
 					<h3>Last Updated</h3>
-					<div>{props.updatedAt}</div>
+					<div>{props.projectDetails.updatedAt}</div>
 					<h3>Creator</h3>
 					<div>{props.user.name}</div>
 					<h3>Contact</h3>
