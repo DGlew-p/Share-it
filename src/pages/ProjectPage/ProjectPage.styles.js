@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const ProjectCard = styled.div`
 	margin: 0 auto;
-	padding-top: 5rem;
-	padding-bottom: 3rem;
 `;
 
 export const InnerCard = styled.article`

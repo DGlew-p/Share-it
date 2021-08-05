@@ -37,7 +37,6 @@ export default class ProfileForm extends Component {
           object_id_reference: this.props.user._id,
         }),
       });
-      //   console.log(fetchResponse);
 
       if (!fetchResponse.ok) this.setState({ error: "We are broken" });
     } catch (err) {
@@ -45,9 +44,7 @@ export default class ProfileForm extends Component {
     }
   };
 
-  // onChange = () => {
-  // 	this.setState({ redirect: true });
-  // };
+
   render() {
     if (this.state.redirect) {
       return <Redirect to="/projects" />;
@@ -72,7 +69,7 @@ export default class ProfileForm extends Component {
 				<div className="field">
 					<FormLabel className="label">Skills</FormLabel>
 					<div className="control">
-						<textarea className="textarea" name="skills" type="text-area" value={this.state.skills} onChange={this.handleChange}></textarea>
+						<textarea className="textarea" name="skills" type="text-area" value={this.state.skills} onChange={this.handleChange} required ></textarea>
 					</div>
 				</div>
 				<div className="field">
