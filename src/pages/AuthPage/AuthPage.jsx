@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import ShareItLogo from '../../images/share_it.svg';
-import { Wrapper, Content, LogoImg, EmailWrap, LogLink } from './AuthPage.styles';
+import { Wrapper, Content, LogoImg, EmailWrap, LogLink, HeroImg } from './AuthPage.styles';
 import { StylesProvider } from "@material-ui/core/styles";
 export default class AuthPage extends React.Component {
     state = {
@@ -11,8 +11,11 @@ export default class AuthPage extends React.Component {
   
     render() {
       return (
-     <StylesProvider injectFirst>
+    //  <StylesProvider injectFirst>
+        <React.Fragment>
         <Wrapper>
+            <HeroImg />
+            <div>
             <Content>
                 <LogoImg src={ShareItLogo} alt="share-it-logo" />
                 <h3
@@ -28,8 +31,12 @@ export default class AuthPage extends React.Component {
                     <SignUpForm setUserInState={this.props.setUserInState} />
                 )}
             </EmailWrap>
+            </div>
         </Wrapper>
-        </StylesProvider>
+        </React.Fragment>
+        
       );
     }
   }
+
+  {/* </StylesProvider> */}
