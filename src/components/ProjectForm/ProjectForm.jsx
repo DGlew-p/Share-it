@@ -9,7 +9,6 @@ export default class ProjectForm extends Component {
 		title: '',
 		tech_stack: '',
 		project_description: '',
-		// image:{url:"1",filename:"2"}
 	};
 
 	handleChange = (e) => {
@@ -36,12 +35,10 @@ export default class ProjectForm extends Component {
 				}),
 			});
 			await fetchResponse.json();
-			console.log(fetchResponse + '   FORM FETCH');
 			this.setState({
 				title: '',
 				tech_stack: '',
 				project_description: '',
-				// image:{url:"",filename:""}
 			});
 		} catch (err) {
 			console.log('BAD FETCH', err);
