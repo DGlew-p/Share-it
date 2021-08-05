@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button } from '@material-ui/core';
+import heroImg from '../../images/dev.jpg';
 
 export const LogLink = styled(Button)`
 	font-size: 5rem;
@@ -7,7 +8,10 @@ export const LogLink = styled(Button)`
 `;
 
 export const Wrapper = styled.div`
-	padding: 0 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 100vh;
+	background-color: #d4d7b8;
 `;
 
 export const Content = styled.div`
@@ -23,4 +27,11 @@ export const EmailWrap = styled.div`
 
 export const LogoImg = styled.img`
 	width: 200px;
+`;
+
+export const HeroImg = styled.div`
+	background-image: url(${heroImg});
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 `;

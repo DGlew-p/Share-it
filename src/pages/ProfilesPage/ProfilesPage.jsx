@@ -1,8 +1,10 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import ProfileCard from '../../components/ProfileCard/ProfileCard';
-import NavigationBarRender from "../../components/NavigationBarRender";
-import SingleProfileCard from '../../components/SingleProfileCard/SingleProfileCard'
-
+// import NavigationBarRender from "../../components/NavigationBarRender";
+// import SingleProfileCard from '../../components/SingleProfileCard/SingleProfileCard'
+import NavBar from '../../components/NavBar/NavBar';
+import { Followers, Container } from './ProfilesPage.styles';
+import { MainTitle, } from '../ProjectPage/ProjectPage.styles';
 export default class AllProfiles extends Component {
 
     state = {
@@ -76,18 +78,21 @@ export default class AllProfiles extends Component {
     
     render(){
         return (
-            <div>
-                <NavigationBarRender/>
-                <h1>All Profiles</h1>
-            
-                {this.state.profilesHistory.map((profile) => (
-                   
-                    <ProfileCard key={profile._id} {...profile} handleProfileDelete={this.handleProfileDelete} showProfile={this.showProfile}/>
-                    // <button onClick={() => this.showProfile(profile._id)}>Button</button>
-                ))}
+            <React.Fragment>
+                {/* <NavigationBarRender/> */}
+                <NavBar userLogout={this.props.userLogout} />
+                <MainTitle>All Profiles</MainTitle>
+                <Followers>
+                    <Container>
+                    {this.state.profilesHistory.map((profile) => (
+                    
+                        <ProfileCard key={profile._id} {...profile} handleProfileDelete={this.handleProfileDelete} showProfile={this.showProfile}/>
+                        // <button onClick={() => this.showProfile(profile._id)}>Button</button>
+                    ))}
                 {/* <SingleProfileCard showProfile={this.showProfile} showList={this.showList} showCard={this.showCard} /> */}
-                
-            </div>
+                    </Container>
+                </Followers>
+            </React.Fragment>
         );
       }
 }
