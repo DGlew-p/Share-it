@@ -6,8 +6,9 @@ const upload = multer({ storage });
 const projectCtrl = require('../../controllers/projects');
 
 router.get('/', projectCtrl.index);
-router.post('/new', projectCtrl.create);
-// router.post('/', upload.single('image'), projectCtrl.create);
+// router.post('/new', projectCtrl.create);
+router.delete('/', projectCtrl.delete);
+router.post('/new', upload.single('image'), projectCtrl.create);
 // router.put('/:id', upload.single('image'), projectCtrl.update);
 
 // router.get('/:id', projectCtrl.show);

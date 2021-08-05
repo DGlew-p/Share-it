@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     :root {
@@ -6,7 +6,8 @@ export const GlobalStyle = createGlobalStyle`
         --white: #fff;
         --grey: #eee;
         --medGrey: #353535;
-        --darkGrey: #1c1c1c;
+        --black: #25250f;
+        --springGreen: #d4d7b8;
         --fontSuperBig: 2.5rem;
         --fontBig: 1.5rem;
         --fontMedium: 1.2rem;
@@ -16,9 +17,15 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Rubik', sans-serif;
     }
+
+    html {
+        background-color: var(--black);
+    }
+
     body {
         margin: 0;
         padding: 0;
+        background-color: var(--black);
         h1 {
             font-size: 2rem;
             color: black;
@@ -31,4 +38,32 @@ export const GlobalStyle = createGlobalStyle`
             color: var(--darkGrey);
         }
     }
+
+    .box {
+        background-color: #d4d7b8;
+    }
+
+    @media screen and (max-width: 1023px) {
+        .is-active {
+
+        }
+        .navbar-burger{
+            display: none;
+        }
+	}
+`;
+
+export const Container = styled.div`
+	z-index: 1;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1300px;
+	padding-right: 5rem;
+	padding-left: 5rem;
+
+	@media screen and (max-width: 991px) {
+		padding-right: 3rem;
+		padding-left: 3rem;
+	}
 `;
