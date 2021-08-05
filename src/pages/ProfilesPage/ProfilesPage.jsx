@@ -4,6 +4,7 @@ import ProfileCard from '../../components/ProfileCard/ProfileCard';
 // import SingleProfileCard from '../../components/SingleProfileCard/SingleProfileCard'
 import NavBar from '../../components/NavBar/NavBar';
 import { Followers, Container } from './ProfilesPage.styles';
+import { MainTitle, } from '../ProjectPage/ProjectPage.styles';
 export default class AllProfiles extends Component {
 
     state = {
@@ -80,7 +81,7 @@ export default class AllProfiles extends Component {
             <React.Fragment>
                 {/* <NavigationBarRender/> */}
                 <NavBar userLogout={this.props.userLogout} />
-                <h1>All Profiles</h1>
+                <MainTitle>All Profiles</MainTitle>
                 <Followers>
                     <Container>
                     {this.state.profilesHistory.map((profile) => (
