@@ -40,4 +40,5 @@ export default function ProjectItem(props) {
           </InnerCard>
         </div>
     </React.Fragment>
+  )
 }

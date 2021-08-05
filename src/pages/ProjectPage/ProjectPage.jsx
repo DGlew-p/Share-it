@@ -87,12 +87,6 @@ export default class ProjectPage extends Component {
 				<div class="tile is-parent">
         			<div class="tile">
 							<ProjectCard>
-<!-- 								{this.state.projects.map((project) => (
-									<ProjectItem
-										handleProjectDelete={this.handleProjectDelete}
-<!-- 										{...project} -->
-									/>
-								))} -->
                 {this.state.showMine === false ? 
       <section>
         <h1>All Projects</h1>
