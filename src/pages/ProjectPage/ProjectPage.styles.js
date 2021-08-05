@@ -25,8 +25,12 @@ export const ProjectButton = styled.button`
 	margin-right: 1rem;
 `;
 
-export const ToggleButton = styled.button`
+export const ToggleButtonOne = styled.button`
 	width: 30%;
+`;
+
+export const ToggleButtonTwo = styled.button`
+	width: 100%;
 `;
 
 export const Grid = styled.div`

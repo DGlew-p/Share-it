@@ -16,15 +16,13 @@ export default function ProjectItem(props) {
               <ProjectButton className="button is-link is-warning is-rounded" onClick={() => props.handleProjectDelete(props._id)}>
               Delete this Project
               </ProjectButton>
-              <ProjectButton className="button is-link is-warning is-rounded" onClick={()=> props.toggleDetailShow()}>More Details</ProjectButton
+              <ProjectButton className="button is-link is-warning is-rounded" onClick={()=> props.toggleDetailShow()}>More Details</ProjectButton>
             {props.showMine === true?  
             <section>
             <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>
             </section>
-     :
-
- <div></div>
-    }
+            :
+          <div></div>}
   
   <ProjectDetail  
                           toggleDetailShow={props.toggleDetailShow}
@@ -33,7 +31,6 @@ export default function ProjectItem(props) {
                           projectDetails={props.projectDetails}
                           user={props.user}
                           showMine={props.showMine}
-                          showDetail={props.showDetail} 
                           project_description={props.project_description} 
                           tech_stack={props.tech_stack} 
                           title={props.title} 
