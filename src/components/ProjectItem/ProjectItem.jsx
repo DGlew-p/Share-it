@@ -15,7 +15,7 @@ export default function ProjectItem(props) {
               <button className="button is-link is-warning is-rounded" onClick={() => props.handleProjectDelete(props._id)}>
               Delete this Project
               </button>
-              <button id="b1" data-popup-id="p1" className="btn-room-name" onClick={()=> props.toggleDetailShow()}>more details</button>
+              <button id="b1" data-popup-id="p1" onClick={()=> props.toggleDetailShow()}>more details</button>
             {props.showMine === true?  
             <section>
             <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>

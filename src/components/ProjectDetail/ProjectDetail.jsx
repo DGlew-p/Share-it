@@ -1,19 +1,17 @@
-import './ProjectDetail.css';
+// import './ProjectDetail.css';
 import React from 'react';
+import '../../css/bulma.css';
 
 export default function ProjectDetail(props) {
 	return (
-		<div
-			id="p1"
-			className="secret-popup"
-			style={{
-				display: props.showDetail === false ? 'none' : 'block',
-			}}
-		>
-			<div className="popup-wrapper">
-				<div className="popup-top">
-					<h3>Title</h3>
-					<div>{props.title}</div>
+		<div className={ `modal ${ props.showDetail === false ? 'null' : 'is-active'}`}>
+			<div className="modal-background"></div>
+			<div className="modal-card">
+				<header className="modal-card-head">
+					<p className="modal-card-title">{props.title}</p>
+					<button className="delete" aria-label="close" onClick={() => props.toggleDetailShow()}></button>
+				</header>
+				<section className="modal-card-body">
 					<h3>Technologies</h3>
 					<div>{props.tech_stack}</div>
 					<h3>Description</h3>
@@ -24,13 +22,8 @@ export default function ProjectDetail(props) {
 					<div>{props.user.name}</div>
 					<h3>Contact</h3>
 					<div>{props.user.email}</div>
-
-					<div className="close-popup" onClick={() => props.toggleDetailShow()}>
-						<div data-popup-id="p1" className="x-btn"></div>
-					</div>
-				</div>
-				<p>Text</p>
-			</div>
+				</section>																
+			</div>		
 		</div>
 	);
 }

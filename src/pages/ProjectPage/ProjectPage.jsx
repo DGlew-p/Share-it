@@ -20,8 +20,6 @@ export default class ProjectPage extends Component {
   };
 
 
-
-
  toggleDetailShow = ()=> {
       let toggle = this.state.showDetail 
       toggle = this.state.showDetail  ? false : true;
@@ -104,7 +102,7 @@ export default class ProjectPage extends Component {
 
        {this.state.showMine === false ?         
         <section>
-        {this.state.projects.map((project , idx) => (
+        {this.state.projects.map((project, idx) => (
           <ProjectItem  key={idx}
                         toggleDetailShow={this.toggleDetailShow}
                         handleDetailClose={this.handleDetailClose} 
@@ -112,6 +110,7 @@ export default class ProjectPage extends Component {
                         user={this.props.user}
                         showMine={this.state.showMine}
                         showDetail={this.state.showDetail}
+                        closeButton={this.state.closeButton}
                         // projectDetails={this.state.projectDetails}
                         {...project} />
           ))}
