@@ -3,7 +3,6 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import ShareItLogo from '../../images/share_it.svg';
 import { Wrapper, Content, LogoImg, EmailWrap, LogLink, HeroImg } from './AuthPage.styles';
-import { StylesProvider } from "@material-ui/core/styles";
 export default class AuthPage extends React.Component {
     state = {
       showLogin: true,
@@ -38,5 +37,3 @@ export default class AuthPage extends React.Component {
       );
     }
   }
-
-  {/* </StylesProvider> */}

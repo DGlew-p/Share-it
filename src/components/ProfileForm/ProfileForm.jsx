@@ -87,38 +87,3 @@ export default class ProfileForm extends Component {
     );
   }
 }
-
-{/* <div className="form-container">
-<form autoComplete="off" onSubmit={this.handleSubmit}>
-  <Wrapper>
-    <label>Location</label>
-    <input
-      type="location"
-      name="location"
-      value={this.state.location}
-      onChange={this.handleChange}
-      required
-    />
-    <label>Bio</label>
-    <input
-      type="bio"
-      name="bio"
-      value={this.state.bio}
-      onChange={this.handleChange}
-      required
-    />
-    <label>Skills</label>
-    <input
-      type="skills"
-      name="skills"
-      value={this.state.skills}
-      onChange={this.handleChange}
-      required
-    />
-    <label>Image</label>
-    {/* <Input type="image" name="image" value={this.state.image} onChange={this.handleChange} required /> */}
-//     <button type="submit">REGISTER PROFILE</button>
-//   </Wrapper>
-// </form>
-// </div>
-// <p className="error-message">&nbsp;{this.state.error}</p> */}

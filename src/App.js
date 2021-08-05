@@ -24,6 +24,13 @@ export default class App extends Component {
 	componentDidMount() {
 		let token = localStorage.getItem('token');
 		if (token) {
+			// const parseJwt = (token) => {
+			// 	try {
+			// 		return JSON.parse(atob(token.split('.')[1]));
+			// 	} catch (e) {
+			// 		return null;
+			// 	}
+			// };
 			let userDoc = JSON.parse(atob(token.split('.')[1])).user; // decode jwt token
 			this.setState({ user: userDoc });
 		}

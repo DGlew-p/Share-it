@@ -6,7 +6,7 @@ import '../../css/bulma.css';
 import { ProjectCard, MainTitle, } from './ProjectPage.styles';
 
 import NavBar from '../../components/NavBar/NavBar';
-import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
+
 
 
 export default class ProjectPage extends Component {
@@ -90,12 +90,6 @@ export default class ProjectPage extends Component {
 				<div class="tile is-parent">
         			<div class="tile">
 							<ProjectCard>
-<!-- 								{this.state.projects.map((project) => (
-									<ProjectItem
-										handleProjectDelete={this.handleProjectDelete}
-<!-- 										{...project} -->
-									/>
-								))} -->
                 {this.state.showMine === false ? 
       <section>
         <h1>All Projects</h1>
