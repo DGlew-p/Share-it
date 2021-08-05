@@ -20,13 +20,13 @@ export default function NavBar(props) {
 				<div className="navbar-menu is-active">
 					<div className="navbar-end">
 						<Link className="navbar-item" to="/all-projects">
-							All Projects
+							Projects
 						</Link>
 						<Link className="navbar-item" to="/new-project">
 							Create Project
 						</Link>
 						<Link className="navbar-item" to="/new-profile">
-							Create Profile
+							Update Profile
 						</Link>
 						<Link className="navbar-item" to="/all-profiles">
 							All Profiles

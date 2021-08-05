@@ -1,9 +1,8 @@
 
 import React from 'react';
-import { Component } from 'react';
 import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import '../../css/bulma.css';
-import { ProjectCard, MainTitle, ToggleBox, ToggleButton } from './ProjectPage.styles';
+import { ProjectCard, MainTitle, ToggleBox, ToggleButtonOne, ToggleButtonTwo } from './ProjectPage.styles';
 
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -89,19 +88,19 @@ export default class ProjectPage extends React.Component {
 				<NavBar userLogout={this.props.userLogout} />
 				<div class="tile is-parent">
         			<div class="tile">
-							<ProjectCard>
+				<ProjectCard>
                 {this.state.showMine === false ? 
       <ToggleBox>
         <MainTitle>All Projects</MainTitle>
-      <ToggleButton className="button" onClick={() => this.toggleShowMine()}>Show My Projects</ToggleButton>
+      <ToggleButtonOne className="button" onClick={() => this.toggleShowMine()}>Show My Projects</ToggleButtonOne>
 
       </ToggleBox> 
       : 
-      <section>
+      <ToggleBox>
       <MainTitle>Your Projects</MainTitle>
-      <button className="button" onClick={() => this.toggleShowMine()}>Show All Projects</button>
-      </section> }
-
+      <ToggleButtonTwo className="button" onClick={() => this.toggleShowMine()}>Show All Projects</ToggleButtonTwo>
+      </ToggleBox>}
+      
        {this.state.showMine === false ?         
         <section>
         {this.state.projects.map((project, idx) => (
