@@ -16,6 +16,10 @@ export const MainTitle = styled.h1`
 	padding: 2rem;
 `;
 
+export const ProjectButton = styled.button`
+	margin-right: 1rem;
+`;
+
 export const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

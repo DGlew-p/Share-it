@@ -1,4 +1,3 @@
-// import './ProjectDetail.css';
 import React from 'react';
 import '../../css/bulma.css';
 
