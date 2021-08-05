@@ -15,3 +15,15 @@ export const Container = styled.div`
 		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	}
 `;
+
+export const Card = styled.article`
+	background: #d4d7b8;
+	border-radius: 0.75rem;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	padding: 2rem 3.5rem;
+	text-align: center;
+`;
+
+export const Button = styled.button`
+	margin: 1rem 0 1rem 0;
+`;
