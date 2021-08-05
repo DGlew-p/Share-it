@@ -32,46 +32,54 @@ require('./config/database');
 			bio: 'Love to Hike etc..',
 			skills: 'React',
 		},
+		{
+			name: 'Elli Raynal',
+			email: 'elli@elli.com',
+			password: 'elli',
+			location: 'Toronto',
+			bio: 'CSS devotee',
+			skills: 'React',
+		},
 	]);
 
 	const projects = await Project.create([
 		{
-			title:"But I must explain to you",
-			tech_stack:"how all this mistaken idea",
-			project_description:"of denouncing was born and I will give you a complete account of the system,",
+			title:"AAA But I must explain to you",
+			tech_stack:"AAA how all this mistaken idea",
+			project_description:"AAA of denouncing was born and I will give you a complete account of the system,",
 			object_id_reference:"610824bbff79824ffb958149"
 
 
 			
 		},
 		{
-			title:"ero eos et ducimus qui ",
-			tech_stack:"Et harum est et expedita distinctio. Nam libero tempor",
-			project_description:"dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit",
+			title:"BBB You are the last hope of the universe.",
+			tech_stack:"BBB I am Singing Wind, Chief of the Martians",
+			project_description:"BBB Fry has discovered the smelliest object in the known universe!",
 			object_id_reference:"610824bbff79824ffb958149"
 
 
 		},
 		{
-			title:"Always hold in these matters ",
-			tech_stack:"when our power of choice is untrammelled ",
-			project_description:" These cases are perfectly simple and easy to distinguish. In a free hour",
+			title:"CCC Always hold in these matters ",
+			tech_stack:" CCC when our power of choice is untrammelled ",
+			project_description:"CCC  Please, Don-Bot… look into your hard drive, and open your mercy file! ",
 			object_id_reference:'6104855b08812d395ae9d950'
 
 
 		},
 		{
-			title:"vero eos et iusto ",
-			tech_stack:"how all this mistaken idea",
-			project_description:"non recusandae. Itaque earum rerum hic aut perferendis doloribus asperiores repellat.",
+			title:"DDD vero eos et iusto ",
+			tech_stack:"DDD how all this mistaken idea",
+			project_description:"DDD non recusandae. Itaque earum rerum hic aut perferendis doloribus asperiores repellat.",
 			object_id_reference:'6104855b08812d395ae9d950'
 
 
 		},
 		{
-			title:"But I must explain to you",
-			tech_stack:"how all this mistaken idea",
-			project_description:"of denouncing was born and I will give you a complete account of the system,",
+			title:"EEE But I must explain to you",
+			tech_stack:"EEE how all this mistaken idea",
+			project_description:"EEE of denouncing was born and I will give you a complete account of the system,",
 			object_id_reference:"610824bbff79824ffb958149"
 
 

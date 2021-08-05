@@ -13,16 +13,19 @@ export default class ProjectPage extends Component {
 	  state = {
     
     projects:[],
-    showMine:true,
+    showMine:false,
     showDetail:false,
-
+    projectDetail:[]
     
   };
+
+
+
 
  toggleDetailShow = ()=> {
       let toggle = this.state.showDetail 
       toggle = this.state.showDetail  ? false : true;
-      this.setState ({ showDetail: toggle })
+      this.setState ({ showDetail: toggle  })
    
      }
  
@@ -101,21 +104,22 @@ export default class ProjectPage extends Component {
 
        {this.state.showMine === false ?         
         <section>
-        {this.state.projects.map((project) => (
-          <ProjectItem toggleDetailShow={this.toggleDetailShow}
+        {this.state.projects.map((project , idx) => (
+          <ProjectItem  key={idx}
+                        toggleDetailShow={this.toggleDetailShow}
                         handleDetailClose={this.handleDetailClose} 
                         handleProjectDelete={this.handleProjectDelete} 
                         user={this.props.user}
                         showMine={this.state.showMine}
                         showDetail={this.state.showDetail}
-                        projectDetails={this.state.projectDetails}
+                        // projectDetails={this.state.projectDetails}
                         {...project} />
           ))}
         </section>
          : 
         <section>
-          {this.state.projects.filter(project => project.object_id_reference === this.props.user._id).map(project => (
-          <ProjectItem 
+          {this.state.projects.filter(project => project.object_id_reference === this.props.user._id).map((project ,idx) => (
+          <ProjectItem key={idx}
           // handleRoomClick={this.handleRoomClick} 
                         toggleDetailShow={this.toggleDetailShow}
                         handleDetailClose={this.handleDetailClose} 

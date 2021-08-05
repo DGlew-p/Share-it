@@ -1,4 +1,5 @@
 import './ProjectDetail.css';
+import React from 'react';
 
 export default function ProjectDetail(props) {
 	return (
@@ -6,13 +7,13 @@ export default function ProjectDetail(props) {
 			id="p1"
 			className="secret-popup"
 			style={{
-				display: props.showDetail === false ? 'none' : 'flex',
+				display: props.showDetail === false ? 'none' : 'block',
 			}}
 		>
 			<div className="popup-wrapper">
 				<div className="popup-top">
-					<h3>Details</h3>
-					<div>{props.projectDetails}</div>
+					<h3>Title</h3>
+					<div>{props.title}</div>
 					<h3>Technologies</h3>
 					<div>{props.tech_stack}</div>
 					<h3>Description</h3>
@@ -22,13 +23,15 @@ export default function ProjectDetail(props) {
 					<h3>Creator</h3>
 					<div>{props.user.name}</div>
 					<h3>Contact</h3>
-					{/* <div>{props.user.email}</div> */}
+					<div>{props.user.email}</div>
 
 					<div className="close-popup" onClick={() => props.toggleDetailShow()}>
 						<div data-popup-id="p1" className="x-btn"></div>
 					</div>
+					<div className="close-popup" onClick={() => props.toggleDetailShow()}>
+						<div data-popup-id="p1" className="x-btn"></div>
+					</div>
 				</div>
-
 				<p>Text</p>
 			</div>
 		</div>
