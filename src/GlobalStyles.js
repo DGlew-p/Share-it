@@ -6,7 +6,8 @@ export const GlobalStyle = createGlobalStyle`
         --white: #fff;
         --grey: #eee;
         --medGrey: #353535;
-        --darkGrey: #1c1c1c;
+        --black: #25250f;
+        --springGreen: #d4d7b8;
         --fontSuperBig: 2.5rem;
         --fontBig: 1.5rem;
         --fontMedium: 1.2rem;
@@ -17,11 +18,14 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Rubik', sans-serif;
     }
 
-    
+    html {
+        background-color: var(--black);
+    }
 
     body {
         margin: 0;
         padding: 0;
+        background-color: var(--black);
         h1 {
             font-size: 2rem;
             color: black;
@@ -35,11 +39,15 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
+    .box {
+        background-color: #d4d7b8;
+    }
+
     @media screen and (max-width: 1023px) {
         .is-active {
 
         }
-        .navbar-menu{
+        .navbar-burger{
             display: none;
         }
 	}
