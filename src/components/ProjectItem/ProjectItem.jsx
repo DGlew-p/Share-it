@@ -31,10 +31,9 @@ export default function ProjectItem(props) {
                           projectDetails={props.projectDetails}
                           user={props.user}
                           showMine={props.showMine}
-                          project_description={props.project_description} 
-                          tech_stack={props.tech_stack} 
-                          title={props.title} 
-                          updatedAt={props.updatedAt} 
+                          showDetail={props.showDetail} 
+                  
+
 
                         />
           </InnerCard>

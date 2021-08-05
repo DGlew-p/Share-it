@@ -9,11 +9,27 @@ export default class AllProfiles extends Component {
 
     state = {
         profilesHistory: [],
-        profileSingle: {},
+        profileDetails: [],
+        showMine:false,
+        showDetail:false,
         list: true,
         card: false,
+        
 
     }
+
+    toggleDetailShow = (details)=> {
+        let toggle = this.state.showDetail 
+        toggle = this.state.showDetail  ? false : true;
+        this.setState ({ showDetail: toggle , profileDetails:details})
+     
+       }
+      
+    handleDetailClose=()=>{
+          this.setState({
+            showDetail:false,
+           })
+          }
 
 
     async componentDidMount(){
@@ -21,13 +37,12 @@ export default class AllProfiles extends Component {
             let fetchProfileResponse = await fetch('api/users/');
             if(!fetchProfileResponse.ok) throw new Error('Could Not Grab Profiles');
             let profiles = await fetchProfileResponse.json();
-            this.setState({ profilesHistory: profiles});
+            this.setState({ profilesHistory: profiles, user:this.props.user});
         } catch(err){
             console.error('Error:', err)// log if error
 
         }   
     }
-
 
     async getProfiles() {
         try {
@@ -41,7 +56,6 @@ export default class AllProfiles extends Component {
 
         }   
     }
-      
 
     handleProfileDelete = async (id)=>{
         await this.deleteProfile(id)
@@ -60,21 +74,11 @@ export default class AllProfiles extends Component {
         let profile = await profileRes.json()
         return profile
       }
-    showProfile = (id) => {
-		fetch(`api/users/${id}`)
-			.then((response) => response.json())
-			.then((responseJson) => {
-				this.setState({ profileSingle: responseJson.data});
-			});
-	};
 
-    showList = () => {
-        this.setState({ card: false, list: true })
-    }
 
-    showCard = () => {
-        this.setState({ card: true, list: false})
-    }
+ 
+
+ 
     
     render(){
         return (
@@ -86,10 +90,19 @@ export default class AllProfiles extends Component {
                     <Container>
                     {this.state.profilesHistory.map((profile) => (
                     
-                        <ProfileCard key={profile._id} {...profile} handleProfileDelete={this.handleProfileDelete} showProfile={this.showProfile}/>
-                        // <button onClick={() => this.showProfile(profile._id)}>Button</button>
+                        <ProfileCard key={profile._id} 
+                                        {...profile} 
+                                        toggleDetailShow={this.toggleDetailShow}
+                                        handleDetailClose={this.handleDetailClose} 
+                                        handleProfileDelete={this.handleProfileDelete} 
+                                        user={this.props.user}
+                                        showMine={this.state.showMine}
+                                        showDetail={this.state.showDetail}
+                                        profileDetails={this.state.profileDetails}
+                                       />
+
                     ))}
-                {/* <SingleProfileCard showProfile={this.showProfile} showList={this.showList} showCard={this.showCard} /> */}
+            
                     </Container>
                 </Followers>
             </React.Fragment>
