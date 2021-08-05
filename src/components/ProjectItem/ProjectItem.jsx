@@ -7,6 +7,8 @@ export default function ProjectItem(props) {
 
   return (
     <React.Fragment>
+      
+    {props.showMine === true? 
       <div class="tile is-parent is-vertical">
           <InnerCard className="tile is-child notification">
               <p className="title">{props.title}</p>
@@ -17,12 +19,21 @@ export default function ProjectItem(props) {
             </button>
              <button id="b1" data-popup-id="p1" className="btn-room-name" onClick={()=> props.toggleDetailShow()}>more details</button>
             {props.showMine === true?  
+
       <section>
       <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>
       </section>
      :
-    <section></section>
+
+ <div></div>
     }
+   
+        <h1>{props.title}</h1>
+        <div>{props.tech_stack}</div>
+        <div>{props.project_description}</div>
+        <div>last updated:{(props.updatedAt)}</div>
+        <button id="b1" data-popup-id="p1" className="btn-room-name" onClick={()=> props.toggleDetailShow()}>more details</button>
+  
    <ProjectDetail  
                           toggleDetailShow={props.toggleDetailShow}
                           showDetail={props.showDetail} 
@@ -38,6 +49,5 @@ export default function ProjectItem(props) {
 
                         />
           </InnerCard>
-        </div>
     </React.Fragment>
 }
