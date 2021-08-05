@@ -1,23 +1,24 @@
-import "./ProjectItem.css";
+import React from 'react';
+import '../../css/bulma.css'
+
+
 // import { Image } from "cloudinary-react";
 
 export default function ProjectItem(props) {
   return (
-    <div>
-   
-        <h1>{props.title}</h1>
-        <div>{props.tech_stack}</div>
-        <div>{props.project_description}</div>
-        <div>last updated:{(props.updatedAt)}</div>
-  
-{/* 
-      <button onClick={() => props.editProject(props._id)}>
-        Edit this Project
-      </button> */}
-
-      <button onClick={() => props.handleProjectDelete(props._id)}>
+    <React.Fragment>
+      <article className="tile is-child box">
+        <p className="title">{props.title}</p>
+        <p className="subtitle">{props.tech_stack}</p>
+        <p className="subtitle">{props.project_description}</p>
+        <button className="button is-link  is-rounded is-outlined" onClick={() => props.handleProjectDelete(props._id)}>
         Delete this Project
       </button>
-    </div>
+      </article>
+  
+
+
+     
+    </React.Fragment>
   );
 }
