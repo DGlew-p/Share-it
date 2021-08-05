@@ -2,6 +2,7 @@ import "./ProjectItem.css";
 import { Image } from "cloudinary-react";
 
 export default function ProjectItem(props) {
+
   return (
     <div>
    
@@ -9,6 +10,7 @@ export default function ProjectItem(props) {
         <div>{props.tech_stack}</div>
         <div>{props.project_description}</div>
         <div>last updated:{(props.updatedAt)}</div>
+        <button id="b1" data-popup-id="p1" className="btn-room-name" onClick={()=> props.handleRoomClick(props)}>more details</button>
   
     {props.showMine === true?  
       <section>
