@@ -6,7 +6,7 @@ import '../../css/bulma.css';
 import { ProjectCard, MainTitle, } from './ProjectPage.styles';
 
 import NavBar from '../../components/NavBar/NavBar';
-import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
+
 
 
 export default class ProjectPage extends Component {
