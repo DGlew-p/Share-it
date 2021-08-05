@@ -1,5 +1,5 @@
 import React from 'react';
-import { InnerCard } from '../../pages/ProjectPage/ProjectPage.styles'
+import { InnerCard, ProjectButton } from '../../pages/ProjectPage/ProjectPage.styles'
 import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
 
 
@@ -12,15 +12,17 @@ export default function ProjectItem(props) {
               <p className="title">{props.title}</p>
               <p className="subtitle">{props.tech_stack}</p>
               <p className="subtitle">{props.project_description}</p>
-              <button id="b1" data-popup-id="p1" onClick={()=> props.toggleDetailShow(props)}>more details</button>
+
+              <ProjectButton className="button is-link is-warning is-rounded" onClick={() => props.handleProjectDelete(props._id)}>
+              Delete this Project
+              </ProjectButton>
+              <ProjectButton className="button is-link is-warning is-rounded" onClick={()=> props.toggleDetailShow(props)}>More Details</ProjectButton>
             {props.showMine === true?  
             <section>
             <button onClick={() => props.handleProjectDelete(props._id)}>Delete this Project</button>
             </section>
-     :
-
- <div></div>
-    }
+            :
+          <div></div>}
   
   <ProjectDetail  
                           toggleDetailShow={props.toggleDetailShow}
@@ -31,6 +33,7 @@ export default function ProjectItem(props) {
                           showMine={props.showMine}
                           showDetail={props.showDetail} 
                   
+
 
                         />
           </InnerCard>

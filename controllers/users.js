@@ -9,7 +9,7 @@ module.exports = {
 	login,
 	update,
 	index,
-	delete:profileDelete,
+	delete: profileDelete,
 	show,
 };
 
@@ -52,7 +52,6 @@ async function login(req, res) {
 async function update(req, res) {
 	console.log(req.body.object_id_reference);
 	const updatedUser = await User.findById(req.body.object_id_reference);
-
 	updatedUser.bio = req.body.bio;
 	updatedUser.location = req.body.location;
 	updatedUser.skills = req.body.skills;
@@ -73,10 +72,10 @@ async function index(req, res) {
 
 async function profileDelete(req, res) {
 	await User.findByIdAndDelete(req.body.id, function (err) {
-	  if (err) return res.status(400).json(err);
-	  res.status(200).json("deleted");
+		if (err) return res.status(400).json(err);
+		res.status(200).json('deleted');
 	});
-  }
+}
 async function show(req, res) {
 	try {
 		const profile = await User.findById(req.params.id);
