@@ -7,7 +7,7 @@ import ProjectForm from './components/ProjectForm/ProjectForm';
 import ProfileFormPage from './pages/ProfileFormPage/ProfileFormPage';
 import ProfilesPage from './pages/ProfilesPage/ProfilesPage';
 import SingleProfilePage from './pages/SingleProfilePage/SingleProfilePage';
-import Logout from './components/UserLogOut/UserLogOut';
+// import Logout from './components/UserLogOut/UserLogOut';
 
 //styles
 
@@ -41,11 +41,16 @@ export default class App extends Component {
 
 				{this.state.user ? (
 					<div>
-						<Logout userLogout={this.userLogout} />
+						{/* <Logout userLogout={this.userLogout} /> */}
 						<Switch>
 							<Route
 								path="/all-projects"
-								render={() => <ProjectPage user={this.state.user} />}
+								render={() => (
+									<ProjectPage
+										user={this.state.user}
+										userLogout={this.userLogout}
+									/>
+								)}
 							/>
 							<Route
 								path="/new-project"

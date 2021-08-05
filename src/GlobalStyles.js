@@ -34,6 +34,15 @@ export const GlobalStyle = createGlobalStyle`
             color: var(--darkGrey);
         }
     }
+
+    @media screen and (max-width: 1023px) {
+        .is-active {
+
+        }
+        .navbar-menu{
+            display: none;
+        }
+	}
 `;
 
 export const Container = styled.div`

@@ -54,7 +54,7 @@ export default class ProjectPage extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar userLogout={this.props.userLogout} />
         <h1>All Projects</h1>
         {this.state.projects.map((project) => (
           <ProjectItem handleProjectDelete={this.handleProjectDelete} {...project} />
