@@ -52,22 +52,31 @@ export default class ProjectPage extends React.Component {
   state = {
     
     projects:[],
-    user:[],
     showMine:true,
     showDetail:false,
-    projectDetails:''
+
     
   };
 
-  handleRoomClick=(project) => {
-    console.log(JSON.stringify(project)+"    STRING THING")
-    this.setState({showDetail:true , projectDetails:project})
-    }
+  // handleRoomClick = () => {
+  //   this.setState({
+  //     showDetail:false,
+  //   })
+  //   }
+
+    toggleDetailShow = ()=> {
+      let toggle = this.state.showDetail 
+      toggle = this.state.showDetail  ? false : true;
+      this.setState ({ showDetail: toggle })
+   
+     }
+
+
     
-    handleDetailClose=()=>{
+  handleDetailClose=()=>{
         this.setState({
-          projectDetails:[],
           showDetail:false,
+          projectDetails:[]
          })
         }
 
@@ -140,25 +149,35 @@ export default class ProjectPage extends React.Component {
        {this.state.showMine === false ?         
         <section>
         {this.state.projects.map((project) => (
-          <ProjectItem handleRoomClick={this.handleRoomClick} {...project} />
+          <ProjectItem toggleDetailShow={this.toggleDetailShow}
+                        handleDetailClose={this.handleDetailClose} 
+                        handleProjectDelete={this.handleProjectDelete} 
+                        user={this.props.user}
+                        showMine={this.state.showMine}
+                        showDetail={this.state.showDetail}
+                        projectDetails={this.state.projectDetails}
+                        {...project} />
           ))}
         </section>
          : 
         <section>
-          {this.state.projects.filter(project => project.object_id_reference === this.state.user._id).map(project => (
-          <ProjectItem showMine={this.state.showMin}
-                        handleRoomClick={this.handleRoomClick}  
+          {this.state.projects.filter(project => project.object_id_reference === this.props.user._id).map(project => (
+          <ProjectItem 
+          // handleRoomClick={this.handleRoomClick} 
+                        toggleDetailShow={this.toggleDetailShow}
+                        handleDetailClose={this.handleDetailClose} 
                         handleProjectDelete={this.handleProjectDelete} 
-                        projectDetails={this.state.projectDetails}
+                        user={this.props.user}
+                        showMine={this.state.showMine}
+                        showDetail={this.state.showDetail}
+                        // projectDetails={this.state.projectDetails}
                         {...project} />
             ))}
         </section>}
-        <ProjectDetail  showDetail={this.state.showDetail} 
-                
-                        handleDetailClose={this.handleDetailClose} 
-                        projectDetails={this.state.projectDetails}
-                        {...this.state}  />
+
+   
       </div>
     );
   }
 }
+

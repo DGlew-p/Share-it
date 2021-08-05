@@ -16,11 +16,11 @@ export default function ProjectDetail(props) {
           <h3>Last Updated</h3>
           <div>{(props.updatedAt)}</div>
           <h3>Creator</h3>
-          {/* <div>{props.user.name}</div> */}
+          <div>{props.user.name}</div>
           <h3>Contact</h3>
-          {/* // <div>{props.user.email}</div> */}
+          // <div>{props.user.email}</div>
   
-          <div className="close-popup" onClick={()=> props.handleDetailClose()}>
+          <div className="close-popup" onClick={()=> props.toggleDetailShow()}>
             <div data-popup-id="p1" className="x-btn"></div>
           </div>
         </div>
