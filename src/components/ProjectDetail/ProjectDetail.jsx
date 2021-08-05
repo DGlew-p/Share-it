@@ -28,9 +28,6 @@ export default function ProjectDetail(props) {
 					<div className="close-popup" onClick={() => props.toggleDetailShow()}>
 						<div data-popup-id="p1" className="x-btn"></div>
 					</div>
-					<div className="close-popup" onClick={() => props.toggleDetailShow()}>
-						<div data-popup-id="p1" className="x-btn"></div>
-					</div>
 				</div>
 				<p>Text</p>
 			</div>
