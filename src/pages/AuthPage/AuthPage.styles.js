@@ -41,3 +41,13 @@ export const SlugContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 `;
+
+export const Logout = styled.button`
+	margin: 1rem;
+`;
+
+export const Title = styled.h1`
+	margin-top: 5rem;
+	text-align: center;
+	font-size: 1.4rem;
+`;

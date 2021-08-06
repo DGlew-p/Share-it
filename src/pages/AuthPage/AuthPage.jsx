@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import ShareItLogo from '../../images/share_it.svg';
-import { Wrapper, Content, LogoImg, EmailWrap, LogLink, HeroImg } from './AuthPage.styles';
+import { Wrapper, Content, LogoImg, EmailWrap, LogLink, HeroImg, Title } from './AuthPage.styles';
 export default class AuthPage extends React.Component {
     state = {
       showLogin: true,
@@ -26,7 +26,7 @@ export default class AuthPage extends React.Component {
                         
                     </Content>
                     <div>
-                        <h1>Making Your Projects is Hard, Sharing Them Has Never Been Easier!</h1>
+                        <Title>Making Your Projects is Hard, Sharing Them Has Never Been Easier!</Title>
                     </div>
                     <EmailWrap>
                         {this.state.showLogin ? (

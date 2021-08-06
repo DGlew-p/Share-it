@@ -1,12 +1,13 @@
 import React from 'react';
+import { Logout } from '../../pages/AuthPage/AuthPage.styles'
 
 class UserLogOut extends React.Component {
 
   render() {
   return (
-      <>
-        <button className="button" onClick={() => this.props.userLogout()}>Logout</button>
-      </>
+      <React.Fragment>
+        <Logout className="button" onClick={() => this.props.userLogout()}>Logout</Logout>
+      </React.Fragment>
   );
   }
 }
