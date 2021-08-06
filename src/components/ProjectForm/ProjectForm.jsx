@@ -20,7 +20,7 @@ export default class ProjectForm extends Component {
 
 	handleSubmit = async (evt) => {
 		evt.preventDefault();
-		this.setState({ redirect: true });
+		 this.setState({ redirect: true });
 
 		try {
 			let jwt = localStorage.getItem('token');
@@ -57,8 +57,8 @@ export default class ProjectForm extends Component {
 		  }
 		return (
 			<React.Fragment>
-				<NavBar />
-				<MainTitle>Fill Out Your Project</MainTitle>
+         <NavBar userLogout={this.props.userLogout} />
+		 	<MainTitle>Fill Out Your Project</MainTitle>
 				<Wrapper
 					autoComplete="on"
 					onSubmit={this.handleSubmit}

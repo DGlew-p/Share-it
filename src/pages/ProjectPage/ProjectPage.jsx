@@ -15,7 +15,9 @@ export default class ProjectPage extends React.Component {
     projects:[],
     showMine:false,
     showDetail:false,
-    projectDetails:[]
+    projectDetails:[],
+   
+
     
   };
 
@@ -85,20 +87,21 @@ export default class ProjectPage extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<NavBar userLogout={this.props.userLogout} />
-				<MainTitle>All Projects</MainTitle>
+			 <NavBar userLogout={this.props.userLogout}/>
+        {this.state.showMine === false ? 		<MainTitle>All Projects</MainTitle>:<MainTitle>Your Projects</MainTitle>}
+		
 				<div class="tile is-parent">
         			<div class="tile">
 							<ProjectCard>
                 {this.state.showMine === false ? 
       <section>
-        <h1>All Projects</h1>
+
       <button onClick={() => this.toggleShowMine()}>Show my Projects</button>
 
       </section> 
       : 
       <section>
-      <h1>Your Projects</h1>
+
       <button onClick={() => this.toggleShowMine()}>Show all Projects</button>
       </section> }
 

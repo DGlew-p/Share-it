@@ -54,7 +54,7 @@ export default class ProfileForm extends Component {
     }
     return (
       <React.Fragment>
-        <NavBar />
+            <NavBar userLogout={this.props.userLogout} />
         <MainTitle>Fill Out Your Profile</MainTitle>
         <Wrapper autoComplete="on" onSubmit={this.handleSubmit} enctype="multipart/form-data">
 				<div className="field">

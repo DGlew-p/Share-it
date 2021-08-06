@@ -10,4 +10,4 @@ router.delete('/', usersCtrl.delete);
 router.put('/profileUpdate', usersCtrl.update);
 module.exports = router;
 router.get('/', usersCtrl.index);
-router.get('/:id', usersCtrl.show);
+

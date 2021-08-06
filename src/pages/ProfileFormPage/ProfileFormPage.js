@@ -5,7 +5,7 @@ export default class ProfilePage extends Component {
 	render() {
 		return (
 			<div>
-				<ProfileForm user={this.props.user} />
+				<ProfileForm userLogout={this.props.userLogout} user={this.props.user} />
 			</div>
 		);
 	}

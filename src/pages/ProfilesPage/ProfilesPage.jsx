@@ -14,7 +14,7 @@ export default class AllProfiles extends Component {
         showDetail:false,
         list: true,
         card: false,
-        
+      
 
     }
 
@@ -83,8 +83,7 @@ export default class AllProfiles extends Component {
     render(){
         return (
             <React.Fragment>
-                {/* <NavigationBarRender/> */}
-                <NavBar userLogout={this.props.userLogout} />
+                <NavBar userLogout={this.props.userLogout}/>
                 <MainTitle>All Profiles</MainTitle>
                 <Followers>
                     <Container>

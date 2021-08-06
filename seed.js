@@ -44,42 +44,42 @@ require('./config/database');
 
 	const projects = await Project.create([
 		{
-			title:"AAA But I must explain to you",
-			tech_stack:"AAA how all this mistaken idea",
-			project_description:"AAA of denouncing was born and I will give you a complete account of the system,",
+			title:"Breakout",
+			tech_stack:"NextJS",
+			project_description:"In Breakout, the goal is to destroy all the bricks at the top. A ball bounces off the top and two sides of the screen. When a brick is hit, the ball bounces back and the brick is destroyed.",
 			object_id_reference:"610824bbff79824ffb958149"
 
 
 			
 		},
 		{
-			title:"BBB You are the last hope of the universe.",
-			tech_stack:"BBB I am Singing Wind, Chief of the Martians",
-			project_description:"BBB Fry has discovered the smelliest object in the known universe!",
+			title:"Rock Paper Scissors",
+			tech_stack:"React , Icons8",
+			project_description:"Rock-paper-scissors originated in China and spread with increased contact with East Asia, while developing different variants in signs over time.",
 			object_id_reference:"610824bbff79824ffb958149"
 
 
 		},
 		{
-			title:"CCC Always hold in these matters ",
-			tech_stack:" CCC when our power of choice is untrammelled ",
-			project_description:"CCC  Please, Don-Bot… look into your hard drive, and open your mercy file! ",
+			title:"Landing Page Template",
+			tech_stack:"  HTML and CSS.",
+			project_description:"This landing page was created as a temporary placeholder for my personal domain while I was working on my portfolio. It's designed keeping simplicity in mind for both setup and UI. ",
 			object_id_reference:'6104855b08812d395ae9d950'
 
 
 		},
 		{
-			title:"DDD vero eos et iusto ",
-			tech_stack:"DDD how all this mistaken idea",
-			project_description:"DDD non recusandae. Itaque earum rerum hic aut perferendis doloribus asperiores repellat.",
+			title:"qr-code generator",
+			tech_stack:"JavaScript",
+			project_description:"Making a qr-code generator is pretty simple tbh because of the existing stuff available on the internet.",
 			object_id_reference:'6104855b08812d395ae9d950'
 
 
 		},
 		{
-			title:"EEE But I must explain to you",
-			tech_stack:"EEE how all this mistaken idea",
-			project_description:"EEE of denouncing was born and I will give you a complete account of the system,",
+			title:"Pascaline- a simple calculator for all your needs",
+			tech_stack:"JavaScript , Math.js",
+			project_description:"Last week, I took part in the week-long IBD WFH tool building challenge hosted by crio.do. In this challenge, So I began thinking about what I could build and decided to work on an issue I found a few days ago.",
 			object_id_reference:"610824bbff79824ffb958149"
 
 
