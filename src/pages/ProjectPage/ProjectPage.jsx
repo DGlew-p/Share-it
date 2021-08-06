@@ -85,8 +85,8 @@ export default class ProjectPage extends React.Component {
 		return (
 			<React.Fragment>
 				<NavBar />
-				<div class="tile is-parent">
-        			<div class="tile">
+				<div className="tile is-parent">
+        			<div className="tile">
 				<ProjectCard>
                 {this.state.showMine === false ? 
       <ToggleBox>

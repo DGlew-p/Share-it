@@ -39,11 +39,11 @@ export default class ProjectForm extends Component {
 				}),
 			});
 			await fetchResponse.json();
-			this.setState({
-				title: '',
-				tech_stack: '',
-				project_description: '',
-			});
+			// this.setState({
+			// 	title: '',
+			// 	tech_stack: '',
+			// 	project_description: '',
+			// });
 		} catch (err) {
 			console.log('BAD FETCH', err);
 		}
@@ -58,9 +58,9 @@ export default class ProjectForm extends Component {
 				<NavBar />
 				<MainTitle>Fill Out Your Project</MainTitle>
 				<Wrapper
-					autoComplete="on"
+					autoComplete="off"
 					onSubmit={this.handleSubmit}
-					enctype="multipart/form-data"
+
 				>
 					<div className="field">
 						<FormLabel className="label">Name of Project</FormLabel>

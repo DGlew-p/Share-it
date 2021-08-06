@@ -53,7 +53,7 @@ export default class ProfileForm extends Component {
       <React.Fragment>
         <NavBar />
         <MainTitle>Fill Out Your Profile</MainTitle>
-        <Wrapper autoComplete="on" onSubmit={this.handleSubmit} enctype="multipart/form-data">
+        <Wrapper autoComplete="off" onSubmit={this.handleSubmit}>
 				<div className="field">
 					<FormLabel className="label">Location</FormLabel>
 					<div className="control">

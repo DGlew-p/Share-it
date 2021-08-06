@@ -7,15 +7,15 @@ export default function ProjectItem(props) {
 
   return (
     <React.Fragment>
-      <div class="tile is-parent is-vertical">
+      <div className="tile is-parent is-vertical">
           <InnerCard className="tile is-child notification">
               <p className="title">{props.title}</p>
               <p className="subtitle">{props.tech_stack}</p>
               <p className="subtitle">{props.project_description}</p>
 
-              <ProjectButton className="button is-link is-warning is-rounded" onClick={() => props.handleProjectDelete(props._id)}>
+              {/* <ProjectButton className="button is-link is-warning is-rounded" onClick={() => props.handleProjectDelete(props._id)}>
               Delete this Project
-              </ProjectButton>
+              </ProjectButton> */}
               <ProjectButton className="button is-link is-warning is-rounded" onClick={()=> props.toggleDetailShow(props)}>More Details</ProjectButton>
             {props.showMine === true?  
             <section>
@@ -31,8 +31,6 @@ export default function ProjectItem(props) {
                           projectDetails={props.projectDetails}
                           user={props.user}
                           showMine={props.showMine}
-                          showDetail={props.showDetail} 
-                  
 
 
                         />

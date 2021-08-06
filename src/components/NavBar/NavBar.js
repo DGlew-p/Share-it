@@ -31,9 +31,6 @@ export default function NavBar(props) {
 						<Link className="navbar-item" to="/all-profiles">
 							All Profiles
 						</Link>
-						{/* <button className="navbar-item" userLogout={() => props.userlogout}>
-							Logout
-						</button> */}
 					</div>
 				</div>
 			</NavBarFull>

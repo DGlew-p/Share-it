@@ -47,6 +47,7 @@ export default class App extends Component {
 
 				{this.state.user ? (
 					<div>
+						<Logout userLogout={this.userlogout} />
 						<Switch>
 							<Route
 								path="/all-projects"
@@ -69,11 +70,8 @@ export default class App extends Component {
 						</Switch>
 					</div>
 				) : (
-					<Route>
-						<AuthPage setUserInState={this.setUserInState} />
-					</Route>
+					<AuthPage setUserInState={this.setUserInState} />
 				)}
-				<Logout userLogout={this.userlogout} />
 			</React.Fragment>
 		);
 	}
