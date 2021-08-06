@@ -6,6 +6,10 @@ Welcome to Share-it a site made for developers by developers. Our aim is to crea
 
 [Share-It](https://share-it-app.herokuapp.com/)
 
+## Link to Github 
+
+[Repo](https://git.generalassemb.ly/eraynai/share-it/tree/master)
+
 
 ## Screenshots
 
